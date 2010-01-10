@@ -9,6 +9,6 @@ package ElementsDeVoie;
  *
  * @author NorTicUs
  */
-public class ElementsJonction {
+public abstract class ElementsJonction extends ElementDeVoie{
 
 }

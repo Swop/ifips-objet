@@ -5,17 +5,65 @@
 
 package ElementsDeVoie;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
  * @author NorTicUs
  */
-public class Rail {
+public class Rail extends ElementDeVoie{
 
-    private ArrayList<Troncon> troncons;
+    private LinkedList<Troncon> troncons;
     private ElementsJonction amont;
     private ElementsJonction aval;
-    private ArrayList<Semaphore> semaphoresAmont;
-    private ArrayList<Semaphore> semaphoresAval;
+    private LinkedList<Semaphore> semaphoresAmont;
+    private LinkedList<Semaphore> semaphoresAval;
+
+    public Rail(LinkedList<Troncon> troncons, ElementsJonction amont, ElementsJonction aval) {
+	this.troncons = troncons;
+	this.amont = amont;
+	this.aval = aval;
+    }
+
+    public ElementsJonction getAmont() {
+	return amont;
+    }
+
+    public void setAmont(ElementsJonction amont) {
+	this.amont = amont;
+    }
+
+    public ElementsJonction getAval() {
+	return aval;
+    }
+
+    public void setAval(ElementsJonction aval) {
+	this.aval = aval;
+    }
+
+    public LinkedList<Semaphore> getSemaphoresAmont() {
+	return semaphoresAmont;
+    }
+
+    public void setSemaphoresAmont(LinkedList<Semaphore> semaphoresAmont) {
+	this.semaphoresAmont = semaphoresAmont;
+    }
+
+    public LinkedList<Semaphore> getSemaphoresAval() {
+	return semaphoresAval;
+    }
+
+    public void setSemaphoresAval(LinkedList<Semaphore> semaphoresAval) {
+	this.semaphoresAval = semaphoresAval;
+    }
+
+    public LinkedList<Troncon> getTroncons() {
+	return troncons;
+    }
+
+    public void setTroncons(LinkedList<Troncon> troncons) {
+	this.troncons = troncons;
+    }
+
+
 }
