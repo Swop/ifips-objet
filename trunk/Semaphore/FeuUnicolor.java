@@ -19,6 +19,9 @@ import ElementsDeVoie.Troncon;
 
 public class FeuUnicolor extends Semaphore {
 
+	/**
+	 * definition du Feu1
+	 */
 	protected boolean Feu1;
 	
 	public FeuUnicolor (Sens sens,Troncon position) {
@@ -41,7 +44,7 @@ public class FeuUnicolor extends Semaphore {
 		 * Modifie la vitesse du train
 		 */
 		public void actionTrain(Train t) {
-			
+			//if(!Feu1)
 		}
 	    
 }
