@@ -30,7 +30,7 @@ public class Train {
     }
 
     public void avancer() throws ProblemeTrain {
-	th
+	this.position
     }
 
     public int getId() {
