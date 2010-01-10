@@ -7,7 +7,10 @@
  *
  * @author swop
  */
+
+package gestion_train;
+
 public enum Sens {
     AMONT,
     AVAL
-}
+};
