@@ -7,6 +7,9 @@
 
 package Semaphore;
 
+import gestion_train.Sens;
+import ElementsDeVoie.Troncon;
+
 /**
  *
  * @author HerrChaoul
@@ -17,24 +20,19 @@ public class FeuUnicolor extends Semaphore {
 
 	protected boolean Feu1;
 	
-	public FeuUnicolor () {
-
+	public FeuUnicolor (Sens sens,Troncon position) {
+		super(sens,position);
 		this.Feu1=false;//Feu Vert
 			
 	    };
 
 	    
-	    boolean isGreen(){
+	    boolean getFeu1(){
 	    	return Feu1;
 	    }
 	    
-	    void toGreen(){
-	    	Feu1=true;
+	    void setFeu1(boolean bool){
+	    	this.Feu1=bool;
 	    }
-	    
-	    void tonotGreen(){
-	    	Feu1=false;
-	    }
-
 	    
 }
