@@ -6,6 +6,8 @@
 package Regulation;
 
 import java.util.ArrayList;
+import ElementsDeVoie.*;
+import Semaphore.*;
 
 /**
  *
