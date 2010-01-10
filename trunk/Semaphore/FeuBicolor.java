@@ -4,7 +4,7 @@ public class FeuBicolor extends Semaphore {
 	protected boolean Feu1;
 	protected boolean Feu2;
 	
-	public Semaphore () {
+	public FeuBicolor () {
 
 		this.Feu1=false;
 		this.Feu2=true;
