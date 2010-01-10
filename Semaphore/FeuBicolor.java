@@ -1,4 +1,18 @@
 
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package FeuBicolor;
+
+/**
+ *
+ * @author HerrChaoul
+ */
+
+
 public class FeuBicolor extends Semaphore {
 
 	protected boolean Feu1;
@@ -6,24 +20,24 @@ public class FeuBicolor extends Semaphore {
 	
 	public FeuBicolor () {
 
-		this.Feu1=false;
-		this.Feu2=true;
+		this.Feu1=false;//Feu Vert	
+		this.Feu2=true;//Feu Rouge
 			
 	    };
 
 	    
 	    boolean isGreen(){
-	    	return this.Feu1;
+	    	return Feu1;
 	    }
 	    
 	    void toGreen(){
-	    	this.Feu1=true;
-	    	this.Feu2=false;
+	    	Feu1=true;
+	    	Feu2=false;
 	    }
 	    
 	    void toRed(){
-	    	this.Feu1=false;
-	    	this.Feu2=true;
+	    	Feu1=false;
+	    	Feu2=true;
 	    }
 	    
 }
