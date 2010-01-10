@@ -6,6 +6,9 @@
 
 package Semaphore;
 
+import gestion_train.Sens;
+import ElementsDeVoie.Troncon;
+
 /**
  *
  * @author HerrChaoul
@@ -16,9 +19,9 @@ public class FeuTricolor extends FeuBicolor {
 
 	boolean Feu3;
 	
-	public FeuTricolor () {
-
-		super.Feu1=false;//Feu Vert
+	public FeuTricolor (Sens sens,Troncon position) {
+		super(sens,position);
+		super.Feu1=false;
 		super.Feu2=false;//Feu Orange
 		this.Feu3=true;//Feu Rouge
 			
