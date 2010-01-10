@@ -23,12 +23,15 @@ public class FeuTricolor extends FeuBicolor {
 		this.Feu3=true;//Feu Rouge
 			
 	    };
-
 	    
-	    boolean isGreen(){
-	    	return Feu1;
+	    boolean isRed(){
+	    	return Feu3;
 	    }
 	    
+	    boolean isOrange(){
+	    	return Feu2;
+	    }
+	      
 	    void toGreen(){
 	    	Feu1=true;
 	    	Feu2=false;

@@ -31,6 +31,10 @@ public class FeuUnicolor extends Semaphore {
 	    void toGreen(){
 	    	Feu1=true;
 	    }
+	    
+	    void tonotGreen(){
+	    	Feu1=false;
+	    }
 
 	    
 }
