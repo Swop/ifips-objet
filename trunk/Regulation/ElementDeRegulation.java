@@ -18,4 +18,16 @@ public abstract class ElementDeRegulation {
     private ArrayList<Aiguillage> aguillages;
     private ArrayList<Capteur> capteurs;
     private ArrayList<Semaphore> semaphores;
+
+    public void addAiguillage(Aiguillage a){
+        this.aguillages.add(a);
+    }
+
+    public void addCapteur(Capteur c){
+        this.capteurs.add(c);
+    }
+
+    public void addSemaphore(Semaphore s){
+        this.semaphores.add(s);
+    }
 }

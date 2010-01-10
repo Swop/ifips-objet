@@ -28,9 +28,7 @@ public abstract class Capteur {
         this.position=t;
     }
     
-    public void activer(Train t){
-        
-    }
+    public abstract void activer(Train t);
      
 
 }
