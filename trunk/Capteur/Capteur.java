@@ -5,7 +5,7 @@
 
 package Capteur;
 
-import gestion_train.Train;
+import gestion_train.*;
 import ElementsDeVoie.*;
 import gestion_train.*;
 
@@ -29,9 +29,7 @@ public abstract class Capteur {
         this.position=t;
     }
     
-    public void activer(Train t){
-        
-    }
+    public abstract void activer(Train t);
     
 
 }
