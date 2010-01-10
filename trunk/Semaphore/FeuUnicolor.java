@@ -13,15 +13,13 @@ package Semaphore;
  */
 
 
-public class FeuBicolor extends FeuUnicolor {
+public class UniBicolor extends Semaphore {
 
-
-	protected boolean Feu2;
+	protected boolean Feu1;
 	
 	public FeuBicolor () {
 
-		super.Feu1=false;//Feu Vert	
-		this.Feu2=true;//Feu Rouge
+		this.Feu1=false;//Feu Vert
 			
 	    };
 
@@ -32,12 +30,7 @@ public class FeuBicolor extends FeuUnicolor {
 	    
 	    void toGreen(){
 	    	Feu1=true;
-	    	Feu2=false;
 	    }
-	    
-	    void toRed(){
-	    	Feu1=false;
-	    	Feu2=true;
-	    }
+
 	    
 }
