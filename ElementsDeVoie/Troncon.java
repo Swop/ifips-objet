@@ -28,5 +28,12 @@ public class Troncon {
     public void setParent(Rail parent) {
 	this.parent = parent;
     }
-    
+
+    public LinkedList<Capteur> getCapteurs() {
+	return capteurs;
+    }
+
+    public void setCapteurs(LinkedList<Capteur> capteurs) {
+	this.capteurs = capteurs;
+    }
 }
