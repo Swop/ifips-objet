@@ -46,6 +46,10 @@ public class Troncon {
 	this.capteurs = capteurs;
     }
 
+    public void addCapteurs(Capteur capteur){
+	capteurs.add(capteur);
+    }
+
     /**
      * Envoie le tronçon suivant
      * @param sens
@@ -56,7 +60,7 @@ public class Troncon {
      *	    En cas de déraillement
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
-	if(this == parent.getTroncons().getLast()){
+	if(this.equals(parent.getTroncons().getLast())){
 	    switch(sens){
 		case AMONT : return parent.getTroncons().get(parent.getTroncons().size() - 2);
 		case AVAL : if(parent.getAval().getType().equals(TypeJonction.BUTEE)){
@@ -77,5 +81,7 @@ public class Troncon {
 	    }
 	}
     }
+
+
 
 }
