@@ -4,11 +4,14 @@
  */
 
 package Capteur;
-
+import ElementsDeVoie.*;
 /**
  *
  * @author po
  */
 public class CapteurVitesse extends Capteur {
 
+    CapteurVitesse(Troncon p){
+        super(p);
+    }
 }

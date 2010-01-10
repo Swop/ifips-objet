@@ -4,11 +4,14 @@
  */
 
 package Capteur;
-
+import ElementsDeVoie.*;
 /**
  *
  * @author po
  */
 public class CapteurPosition extends Capteur{
-
+    
+    CapteurPosition(Troncon p){
+        super(p);
+    }
 }
