@@ -6,6 +6,7 @@
 package ElementsDeVoie;
 
 import java.util.LinkedList;
+import Semaphore.*;
 
 /**
  *

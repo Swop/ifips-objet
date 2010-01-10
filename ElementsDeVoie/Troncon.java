@@ -5,6 +5,8 @@
 
 package ElementsDeVoie;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author NorTicUs
@@ -12,5 +14,5 @@ package ElementsDeVoie;
 public class Troncon {
 
     private Rail parent;
-    private ArrayList<Capteur>;
+    private LinkedList<Capteur>;
 }
