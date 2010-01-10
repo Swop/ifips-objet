@@ -1,40 +1,53 @@
 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package FeuTricolor;
+
+/**
+ *
+ * @author HerrChaoul
+ */
+
+
 public class FeuTricolor extends FeuBicolor {
 
 	boolean Feu3;
 	
 	public FeuTricolor () {
 
-		super.Feu1=false;
-		super.Feu2=false;
-		this.Feu3=true;
+		super.Feu1=false;//Feu Vert
+		super.Feu2=false;//Feu Orange
+		this.Feu3=true;//Feu Rouge
 			
 	    };
 
 	    
 	    boolean isGreen(){
-	    	return super.Feu1;
+	    	return Feu1;
 	    }
 	    
 	    void toGreen(){
-	    	super.Feu1=true;
-	    	super.Feu2=false;
-	    	this.Feu3=false;
+	    	Feu1=true;
+	    	Feu2=false;
+	    	Feu3=false;
 	    	
 	    }
 	    
 	    
 	    void toOrange(){
-	    	super.Feu1=false;
-	    	super.Feu2=true;
-	    	this.Feu3=false;
+	    	Feu1=false;
+	    	Feu2=true;
+	    	Feu3=false;
 	    	
 	    }	    
 	    
 	    void toRed(){
-	    	super.Feu1=false;
-	    	super.Feu2=false;
-	    	this.Feu3=true;
+	    	Feu1=false;
+	    	Feu2=false;
+	    	Feu3=true;
 	    }
 	
 	
