@@ -30,7 +30,43 @@ public class Train {
     }
 
     public void avancer() throws ProblemeTrain {
-	this.position
+	int i = this.vitesseCourante;
+	while(i > 0) {
+	    // Avancer le train, test butee
+	    try {
+		Troncon t = this.position.getSuivant(this.sensDeplacement);
+		if(this.sensDeplacement == Sens.AMONT)
+		    t.getParent().getSemaphoresAmont();
+		else
+		    t.getParent().getSemaphoresAval();
+	    } catch(OutOfRail ex) {
+		if(ex.type == OutOfRail.type.Butee)
+		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
+		else
+		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
+	    }
+	    this.deraillerAguillageAuMilieuDuTrain();
+
+	}
+    }
+
+    private void deraillerAguillageAuMilieuDuTrain() throws ProblemeTrain {
+	Troncon t = this.position;
+	int i = this.taille;
+
+	Sens sensInverse;
+	if(this.sensDeplacement == Sens.AMONT)
+	    sensInverse = Sens.AVAL;
+	else
+	    sensInverse = Sens.AMONT;
+
+	while(i > 0) {
+	    try {
+		t = t.getSuivant(sensInverse);
+	    } catch(OutOfRail ex) {
+		throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
+	    }
+	}
     }
 
     public int getId() {
@@ -51,6 +87,30 @@ public class Train {
 
     public float getVitesseCourante() {
 	return vitesseCourante;
+    }
+
+    public void stop() {
+	this.vitesseCourante = 0;
+    }
+
+    public void goMax() {
+	this.vitesseCourante = this.vitesseMax;
+    }
+
+    public void setVitesseScalaire(int vitesse) {
+	if(vitesse < this.vitesseMax)
+	    this.vitesseCourante = vitesse;
+	else
+	    this.vitesseCourante = this.vitesseMax;
+    }
+
+    public void setVitessePourcentage(float pourc) {
+	if(pourc < 0)
+	    pourc = 0;
+	else if(pourc > 1)
+	    pourc = 1;
+
+	this.vitesseCourante = (int) Math.floor(this.vitesseMax / pourc);
     }
 
 
