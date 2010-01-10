@@ -11,7 +11,14 @@ package ElementsDeVoie;
  */
 public class Jonction extends ElementsJonction{
 
+    /**
+     * Rail suivant dans le sens amont
+     */
     private Rail amont;
+
+    /**
+     * Rail suivant dans le sens aval
+     */
     private Rail aval;
 
     public Jonction(Rail amont, Rail aval) {
@@ -33,6 +40,11 @@ public class Jonction extends ElementsJonction{
 
     public void setAval(Rail aval) {
 	this.aval = aval;
+    }
+
+    @Override
+    public TypeJonction getType() {
+	return TypeJonction.JONCTION;
     }
 
 }

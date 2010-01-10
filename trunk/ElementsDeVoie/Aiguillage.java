@@ -13,7 +13,14 @@ import java.util.LinkedList;
  */
 public class Aiguillage extends ElementsJonction{
 
+    /**
+     * Liste des rails sortants de l'aiguillage
+     */
     private LinkedList<Rail> amont;
+
+    /**
+     * Liste des rails entrant de l'aiguillage
+     */
     private LinkedList<Rail> aval;
 
     public Aiguillage(LinkedList<Rail> amont, LinkedList<Rail> aval) {
@@ -35,6 +42,11 @@ public class Aiguillage extends ElementsJonction{
 
     public void setAval(LinkedList<Rail> aval) {
 	this.aval = aval;
+    }
+
+    @Override
+    public TypeJonction getType() {
+	return TypeJonction.AIGUILLAGE;
     }
 
 }

@@ -11,4 +11,7 @@ package ElementsDeVoie;
  */
 public abstract class ElementsJonction extends ElementDeVoie{
 
+    public static enum TypeJonction{ JONCTION, BUTEE, AIGUILLAGE};
+
+    public abstract TypeJonction getType();
 }
