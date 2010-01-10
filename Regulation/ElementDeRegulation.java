@@ -5,11 +5,13 @@
 
 package Regulation;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author po
  */
-public class ElementDeRegulation {
+public abstract class ElementDeRegulation {
     private ArrayList<Aiguillage> aguillages;
     private ArrayList<Capteur> capteurs;
     private ArrayList<Semaphore> semaphores;
