@@ -11,4 +11,13 @@ package ElementsDeVoie;
  */
 public abstract class ElementDeVoie {
 
+    private int longueur;
+
+    public int getLongueur() {
+	return longueur;
+    }
+
+    public void setLongueur(int longueur) {
+	this.longueur = longueur;
+    }
 }
