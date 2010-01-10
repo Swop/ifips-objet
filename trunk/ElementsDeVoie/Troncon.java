@@ -6,6 +6,7 @@
 package ElementsDeVoie;
 
 import java.util.LinkedList;
+import Capteur.*;
 
 /**
  *
@@ -15,4 +16,17 @@ public class Troncon {
 
     private Rail parent;
     private LinkedList<Capteur>;
+
+    public Troncon(Rail parent) {
+	this.parent = parent;
+    }
+
+    public Rail getParent() {
+	return parent;
+    }
+
+    public void setParent(Rail parent) {
+	this.parent = parent;
+    }
+    
 }
