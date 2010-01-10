@@ -42,5 +42,8 @@ public class OutOfRail extends Exception {
 	this.type = type;
     }
 
+    public TypeProbleme getType() {
+	return type;
+    }
 
 }

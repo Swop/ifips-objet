@@ -47,10 +47,13 @@ public class Troncon {
     }
 
     /**
-     * Envoie 
+     * Envoie le tronçon suivant
      * @param sens
+     *	    Sens du train
      * @return
+     *	    Le tronçon suivant
      * @throws OutOfRail
+     *	    En cas de déraillement
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
 	if(this == parent.getTroncons().getLast()){
