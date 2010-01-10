@@ -21,4 +21,9 @@ public class FeuBicolor extends Semaphore {
 	    	this.Feu2=false;
 	    }
 	    
+	    void toRed(){
+	    	this.Feu1=false;
+	    	this.Feu2=true;
+	    }
+	    
 }
