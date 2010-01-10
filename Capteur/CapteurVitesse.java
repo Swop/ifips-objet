@@ -5,6 +5,7 @@
 
 package Capteur;
 import ElementsDeVoie.*;
+import gestion_train.Train;
 /**
  *
  * @author po
@@ -13,5 +14,10 @@ public class CapteurVitesse extends Capteur {
 
     CapteurVitesse(Troncon p){
         super(p);
+    }
+
+
+    public void activer(Train t) {
+        
     }
 }
