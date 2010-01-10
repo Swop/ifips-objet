@@ -13,11 +13,11 @@ package Semaphore;
  */
 
 
-public class UniBicolor extends Semaphore {
+public class FeuUnicolor extends Semaphore {
 
 	protected boolean Feu1;
 	
-	public FeuBicolor () {
+	public FeuUnicolor () {
 
 		this.Feu1=false;//Feu Vert
 			
