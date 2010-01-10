@@ -30,4 +30,18 @@ public abstract class ElementDeRegulation {
     public void addSemaphore(Semaphore s){
         this.semaphores.add(s);
     }
+
+    public ArrayList<Aiguillage> getAguillages(){
+        return this.aguillages;
+    }
+
+    public ArrayList<Capteur> getCapteurs(){
+        return this.capteurs;
+    }
+
+    public ArrayList<Semaphore> getSemaphore(){
+        return this.semaphores;
+    }
+
+    public abstract void reguler();
 }
