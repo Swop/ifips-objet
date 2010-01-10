@@ -11,6 +11,9 @@ package ElementsDeVoie;
  */
 public class Butee extends ElementsJonction{
 
+    /**
+     * Rail finissant par la butée
+     */
     private Rail rail;
 
     public Butee(Rail rail) {
@@ -23,6 +26,11 @@ public class Butee extends ElementsJonction{
 
     public void setRail(Rail rail) {
 	this.rail = rail;
+    }
+
+    @Override
+    public TypeJonction getType() {
+	return TypeJonction.BUTEE;
     }
 
 }

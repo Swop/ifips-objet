@@ -66,5 +66,9 @@ public class Rail extends ElementDeVoie{
 	this.troncons = troncons;
     }
 
+    public Troncon getUnTroncon(int index){
+	return troncons.get(index);
+    }
+
 
 }
