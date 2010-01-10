@@ -25,9 +25,8 @@ public class FeuBicolor extends FeuUnicolor {
 			
 	    };
 
-	    
-	    boolean isGreen(){
-	    	return Feu1;
+	    boolean isRed(){
+	    	return Feu2;
 	    }
 	    
 	    void toGreen(){
