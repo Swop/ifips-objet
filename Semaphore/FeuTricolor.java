@@ -7,6 +7,7 @@
 package Semaphore;
 
 import gestion_train.Sens;
+import gestion_train.Train;
 import ElementsDeVoie.Troncon;
 
 /**
@@ -27,19 +28,13 @@ public class FeuTricolor extends FeuBicolor {
 			
 	    };
 	    
-	    boolean isRed(){
+	    boolean getFeu3d(){
 	    	return Feu3;
 	    }
 	    
-	    boolean isOrange(){
-	    	return Feu2;
-	    }
-	      
-	    void toGreen(){
-	    	Feu1=true;
-	    	Feu2=false;
-	    	Feu3=false;
-	    	
+	    
+	    void setFeu3(boolean bool){
+	    	this.Feu3=bool;	    	
 	    }
 	    
 	    
@@ -55,6 +50,12 @@ public class FeuTricolor extends FeuBicolor {
 	    	Feu2=false;
 	    	Feu3=true;
 	    }
-	
+	    
+	    /**
+		 * Modifie la vitesse du train
+		 */
+		public void actionTrain(Train t) {
+			
+		}
 	
 }

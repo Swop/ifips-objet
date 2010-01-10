@@ -8,6 +8,7 @@
 package Semaphore;
 
 import gestion_train.Sens;
+import gestion_train.Train;
 import ElementsDeVoie.Troncon;
 
 /**
@@ -32,14 +33,15 @@ public class FeuBicolor extends FeuUnicolor {
 	    	return Feu2;
 	    }
 	    
-	    void toGreen(){
-	    	Feu1=true;
-	    	Feu2=false;
+	    void setFeu2(boolean bool){
+	    	this.Feu2=bool;
 	    }
 	    
-	    void toRed(){
-	    	Feu1=false;
-	    	Feu2=true;
-	    }
+	    /**
+		 * Modifie la vitesse du train
+		 */
+		public void actionTrain(Train t) {
+			
+		}
 	    
 }
