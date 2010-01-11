@@ -100,8 +100,8 @@ public class Aiguillage extends ElementsJonction{
 	    Troncon position = t.getPosition();
 	    for(int i = t.getTaille(); i>0; i--){
 		switch(t.getSensDeplacement()){
-		    case AMONT : if(position.getSuivant().equals(null)){
-				    if(position.getSuivant().getParent().getAmont().equals(this)){
+		    case AMONT : if(position.getSuivant() == null){
+				    if(position.getParent().getAmont().equals(this)){
 					throw new TrainSurAiguillage("Il y a un train !");
 				    }
 				    else{
@@ -116,8 +116,8 @@ public class Aiguillage extends ElementsJonction{
 				 }
 				 position = position.getSuivant();
 				 break;
-		    case AVAL : if(position.getPrecedent().equals(null)){
-				    if(position.getPrecedent().getParent().getAval().equals(this)){
+		    case AVAL : if(position.getPrecedent() == null){
+				    if(position.getParent().getAval().equals(this)){
 					throw new TrainSurAiguillage("Il y a un train !");
 				    }
 				    else{
