@@ -20,4 +20,9 @@ public class CapteurVitesse extends Capteur {
     public void activer(Train t) {
         
     }
+
+    
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
