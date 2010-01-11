@@ -70,6 +70,7 @@ public class SimulationReseauFerroviaire {
 	Rail r9 = new Rail(5);
 	Butee b = new Butee();
 	b.setRail(r9);
+	r9.setAmont(b);
 
 	a3.addAmont(r9);
 
