@@ -5,7 +5,6 @@
 
 package gestion_train;
 
-//import ElementsDeVoie.Troncon;
 
 /**
  *
@@ -57,7 +56,8 @@ public class Train {
 		else
 		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
 	    }
-	    Collection<Semaphore> sems;
+
+	    //Collection<Train> tr = SimulationReseauFerroviaire.trains;
 	    if (this.sensDeplacement == Sens.AMONT) {
 		sems = t.getParent().getSemaphoresAmont();
 	    } else {
