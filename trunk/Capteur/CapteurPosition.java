@@ -13,7 +13,7 @@ import gestion_train.Train;
  */
 public class CapteurPosition extends Capteur{
     
-    CapteurPosition(Troncon p){
+    public CapteurPosition(Troncon p){
         super(p);
     }
 
