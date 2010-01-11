@@ -22,6 +22,10 @@ public class Aiguillage extends ElementsJonction{
      * Liste des rails entrant de l'aiguillage
      */
     private LinkedList<Rail> aval;
+    /**
+     * Lien actuel de l'aiguillage
+     */
+    private LinkedList<Rail> lien;
 
     public Aiguillage(LinkedList<Rail> amont, LinkedList<Rail> aval) {
 	this.amont = amont;
@@ -42,6 +46,27 @@ public class Aiguillage extends ElementsJonction{
 
     public void setAval(LinkedList<Rail> aval) {
 	this.aval = aval;
+    }
+
+    public Rail getLienAmont() {
+	return lien.get(0);
+    }
+
+    public Rail getLienAval() {
+	return lien.get(1);
+    }
+
+    /**
+     * Relie deux rails par l'aiguillage
+     * @param amont
+     *	    Rail amont
+     * @param aval
+     *	    Rail aval
+     */
+    public void setLien(Rail amont, Rail aval) {
+	this.lien.clear();
+	this.lien.add(amont);
+	this.lien.add(aval);
     }
 
     @Override

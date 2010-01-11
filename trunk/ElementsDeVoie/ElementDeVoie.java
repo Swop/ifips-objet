@@ -11,7 +11,7 @@ package ElementsDeVoie;
  */
 public abstract class ElementDeVoie {
 
-    private int longueur;
+    protected int longueur;
 
     public int getLongueur() {
 	return longueur;

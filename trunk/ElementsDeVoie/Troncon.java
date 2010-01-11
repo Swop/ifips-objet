@@ -75,7 +75,12 @@ public class Troncon {
 				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
 				}
 				if(parent.getAmont().getType().equals(TypeJonction.AIGUILLAGE)){
-				    throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				    if(((Aiguillage)(parent.getAmont())).getLienAmont().equals(null)){
+					throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				    }
+				    else{
+					((Aiguillage)(parent.getAmont())).getLienAmont().getDernierTroncon();
+				    }
 				}
 				return ((Jonction)(parent.getAmont())).getAmont().getDernierTroncon();
 			    }
@@ -87,7 +92,12 @@ public class Troncon {
 				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
 				}
 				if(parent.getAval().getType().equals(TypeJonction.AIGUILLAGE)){
-				    throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				     if(((Aiguillage)(parent.getAval())).getLienAval().equals(null)){
+					throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				    }
+				    else{
+					((Aiguillage)(parent.getAval())).getLienAval().getPremierTroncon();
+				    }
 				}
 				return ((Jonction)(parent.getAval())).getAval().getPremierTroncon();
 			     }

@@ -21,7 +21,8 @@ public class Rail extends ElementDeVoie{
     private LinkedList<Semaphore> semaphoresAmont;
     private LinkedList<Semaphore> semaphoresAval;
 
-    public Rail(Troncon premierTroncon, Troncon dernierTroncon, ElementsJonction amont, ElementsJonction aval, LinkedList<Semaphore> semaphoresAmont, LinkedList<Semaphore> semaphoresAval) {
+    public Rail(int taille, Troncon premierTroncon, Troncon dernierTroncon, ElementsJonction amont, ElementsJonction aval, LinkedList<Semaphore> semaphoresAmont, LinkedList<Semaphore> semaphoresAval) {
+	this.longueur = taille;
 	this.premierTroncon = premierTroncon;
 	this.dernierTroncon = dernierTroncon;
 	this.amont = amont;
