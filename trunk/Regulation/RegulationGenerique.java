@@ -7,6 +7,9 @@ package Regulation;
 
 import ElementsDeVoie.*;
 import Semaphore.Semaphore;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,20 +18,13 @@ import Semaphore.Semaphore;
  */
 public class RegulationGenerique extends ElementDeRegulation {
 
-
+    Random ia;
     public void reguler() {
         for (Aiguillage a : this.aguillages){
-            for (Rail r : a.getAmont()){
-
-                    for (Semaphore s : r.getSemaphoresAval()){
-                        if a.getLienAmont().equals(r) s.
-                    }
-
-            }
-            for (Rail r : a.getAval()){
-                for (Semaphore s : r.getSemaphoresAmont()){
-
-                }
+            try {
+                a.setLien(ia.nextInt(a.getAmont().size()), ia.nextInt(a.getAval().size()));
+            } catch (TrainSurAiguillage ex) {
+                return;
             }
 
         }
