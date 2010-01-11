@@ -20,15 +20,15 @@ public class ChangementVitesse extends Semaphore {
 	/**
 	 * definition de Vitesse
 	 */
-	protected int Vitesse; 
+	protected int vitesse;
 	
 	/**
 	 * constructeur de ChangementVitesse
-	 * @param vitesse vitesse indiqu par le panneau
+	 * @param vitesse vitesse indiquÃ© par le panneau
 	 */
 	public ChangementVitesse(int vitesse) {
-		if(vitesse<0)this.Vitesse=0;
-		else this.Vitesse=vitesse;
+		if(vitesse<0)this.vitesse=0;
+		else this.vitesse=vitesse;
 	}
 
 
@@ -37,7 +37,7 @@ public class ChangementVitesse extends Semaphore {
 	     * @return valeur (int) de vitesse
 	     */
 	    public int getVitesse(){
-	    	return Vitesse;
+	    	return vitesse;
 	    }
 	    
 	    /**
@@ -45,7 +45,7 @@ public class ChangementVitesse extends Semaphore {
 	     * @param vitesse nouvelle valeur de Vitesse
 	     */
 	    public void setVitesse(int vitesse){
-	    	this.Vitesse=vitesse;
+	    	this.vitesse=vitesse;
 	    }
 
 
@@ -53,9 +53,10 @@ public class ChangementVitesse extends Semaphore {
 		 * Modifie la vitesse du train en fonction de la valeur de Vitesse
 		 */
 		public void actionTrain(Train t) {
-			 t.setVitesseScalaire(Vitesse);
+			 t.setVitesseScalaire(vitesse);
 		}
 		
+		@Override
 		public String toString(){
 	    	return "changement vitesse";
 	    }

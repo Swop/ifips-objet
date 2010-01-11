@@ -20,16 +20,16 @@ public class PanneauRalentissement extends Semaphore {
 	/**
 	 * definition de diminution
 	 */
-	protected float Diminution; 
+	protected float diminution;
 	
 	/**
 	 * constructeur de PanneauRalentissement
-	 * @param diminution diminution de vitesse indiquŽe par PanneauRalentissement
+	 * @param diminution diminution de vitesse indiquï¿½e par PanneauRalentissement
 	 */
 	public PanneauRalentissement(float diminution) {
-		if(diminution<0)this.Diminution=0;
-		else if(diminution>1)this.Diminution=1;
-		else this.Diminution=diminution;
+		if(diminution<0)this.diminution=0;
+		else if(diminution>1)this.diminution=1;
+		else this.diminution=diminution;
 	}
 
 
@@ -38,7 +38,7 @@ public class PanneauRalentissement extends Semaphore {
 	     * @return valeur (float) de Diminution
 	     */
 	    public float getDiminution(){
-	    	return Diminution;
+	    	return diminution;
 	    }
 	    
 	    /**
@@ -46,10 +46,11 @@ public class PanneauRalentissement extends Semaphore {
 	     * @param dimi nouvelle valeur de Diminution
 	     */
 	    public void setDiminution(float dimi){
-	    	this.Diminution=dimi;
+	    	this.diminution=dimi;
 	    }
 	    
-	    public String toString(){
+	    @Override
+    	    public String toString(){
 	    	return "panneau ralentissement";
 	    }
 
@@ -57,7 +58,7 @@ public class PanneauRalentissement extends Semaphore {
 		 * Modifie la vitesse du train en fonction de la valeur de Diminution
 		 */
 		public void actionTrain(Train t) {
-			 t.setVitessePourcentage(Diminution);	
+			 t.setVitessePourcentage(diminution);
 		}
 	    
 }
