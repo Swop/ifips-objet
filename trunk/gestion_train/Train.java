@@ -110,7 +110,7 @@ public class Train {
 	else if(pourc > 1)
 	    pourc = 1;
 
-	this.vitesseCourante = (int) Math.floor(this.vitesseMax / pourc);
+	this.vitesseCourante = (int) Math.floor(this.vitesseMax * pourc);
     }
 
 
