@@ -18,11 +18,17 @@ public class CapteurVitesse extends Capteur {
 
 
     public void activer(Train t) {
-        
+        this.train_detectés.add(t);
+        this.actif=true;
     }
 
-    
-    public void update() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void getVitesse(){
+        float v = 0;
+        for (Train t : train_detectés){
+            v+= t.getVitesseCourante();
+        }
+        v/=train_detectés.size();
+        this.train_detectés.clear();
     }
+  
 }

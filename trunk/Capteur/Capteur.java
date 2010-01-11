@@ -8,6 +8,7 @@ package Capteur;
 import gestion_train.*;
 import ElementsDeVoie.*;
 import gestion_train.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +18,7 @@ public abstract class Capteur {
 
     private Troncon position;
     protected boolean actif;
-    protected Train train_detecté;
+    protected ArrayList<Train> train_detectés;
     public Capteur(Troncon p){
         this.position=p;
 
@@ -32,12 +33,17 @@ public abstract class Capteur {
     }
     
     public boolean isActif(){
-
-        return this.actif;
+        if (this.actif){
+            this.actif=false;
+            
+            return true;
+        }
+        else return false;
+        
     }
 
     public abstract void activer(Train t);
 
-    public abstract void update();
+    
 
 }
