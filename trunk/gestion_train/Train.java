@@ -16,8 +16,6 @@ import ElementsDeVoie.Troncon;
 import ElementsDeVoie.OutOfRail;
 import Semaphore.Semaphore;
 import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Train {
     private int id;
