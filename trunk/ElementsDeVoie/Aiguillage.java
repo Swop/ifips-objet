@@ -79,7 +79,7 @@ public class Aiguillage extends ElementsJonction{
     }
 
     public Rail getLienAmont() {
-	    return lien.get(0);
+	return lien.get(0);
     }
 
     public Rail getLienAval() {
@@ -140,6 +140,7 @@ public class Aiguillage extends ElementsJonction{
 		this.lien.clear();
 		this.lien.add(amont.get(numRailAmont));
 		this.lien.add(aval.get(numRailAval));
+		System.out.println("C'est linké !");
 	    }
 	}
     }
