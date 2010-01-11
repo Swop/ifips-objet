@@ -24,7 +24,7 @@ public class CapteurVitesse extends Capteur {
         this.actif=true;
     }
     /**
-     * Calcul la vitesse et reinitialise la liste de trains detectés
+     * Calcul la vitesse et reinitialise la liste de vitesses detectés
      *
      * @return la vitesse moyenne detectée pendant l'unité de temps
      * 0 si aucun train detecté
