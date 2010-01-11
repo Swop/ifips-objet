@@ -21,4 +21,9 @@ public class CapteurPosition extends Capteur{
         this.train_detecté=t;
         this.actif=true;
     }
+
+    
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

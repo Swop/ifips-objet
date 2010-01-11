@@ -32,10 +32,12 @@ public abstract class Capteur {
     }
     
     public boolean isActif(){
+
         return this.actif;
     }
 
     public abstract void activer(Train t);
-    
+
+    public abstract void update();
 
 }
