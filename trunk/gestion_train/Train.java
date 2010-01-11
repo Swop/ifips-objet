@@ -34,6 +34,17 @@ public class Train {
 
     public void avancer() throws ProblemeTrain {
 	//int i = this.vitesseCourante;
+	
+	Collection<Semaphore> sems;
+	if (this.sensDeplacement == Sens.AMONT) {
+	    sems = t.getParent().getSemaphoresAmont();
+	} else {
+	    sems = t.getParent().getSemaphoresAval();
+	}
+	for(Semaphore sem : sems) {
+	    sem.actionTrain(this);
+	}
+
 	while(this.vitesseCourante > 0) {
 	    // Avancer le train, test butee
 	    Troncon t;
