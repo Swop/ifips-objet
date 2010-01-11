@@ -59,7 +59,7 @@ public class Train {
 	
 	// Semaphore ?
 	t = this.position;
-	Collection<Semaphore> sems = t.testSemaphore(sensDeplacement);
+	Collection<Semaphore> sems = t.getSemaphore(sensDeplacement);
 	for(Semaphore sem : sems) {
 	    System.out.println("Le train "+this.id+" appercois un semaphore : "+sem.toString());
 	    sem.actionTrain(this);
