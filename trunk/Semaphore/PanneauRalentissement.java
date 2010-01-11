@@ -7,9 +7,7 @@
 
 package Semaphore;
 
-import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Rail;
 
 /**
  *
@@ -26,11 +24,9 @@ public class PanneauRalentissement extends Semaphore {
 	
 	/**
 	 * constructeur de PanneauRalentissement
-	 * @param sens sens du PanneauRalentissement	
-	 * @param rail rail du PanneauRalentissement	
 	 * @param diminution diminution de vitesse indiquée par PanneauRalentissement
 	 */
-	public PanneauRalentissement(Sens sens, Rail rail,float diminution) {
+	public PanneauRalentissement(int diminution) {
 		if(diminution<0)this.Diminution=0;
 		else if(diminution>1)this.Diminution=1;
 		else this.Diminution=diminution;
