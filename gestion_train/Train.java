@@ -13,6 +13,9 @@ package gestion_train;
  */
 
 import ElementsDeVoie.Troncon;
+import ElementsDeVoie.OutOfRail;
+import Semaphore.Semaphore;
+import java.util.Collection;
 
 public class Train {
     private int id;
@@ -30,23 +33,30 @@ public class Train {
     }
 
     public void avancer() throws ProblemeTrain {
-	int i = this.vitesseCourante;
-	while(i > 0) {
+	//int i = this.vitesseCourante;
+	while(this.vitesseCourante > 0) {
 	    // Avancer le train, test butee
+	    Troncon t;
 	    try {
-		Troncon t = this.position.getSuivant(this.sensDeplacement);
-		if(this.sensDeplacement == Sens.AMONT)
-		    t.getParent().getSemaphoresAmont();
-		else
-		    t.getParent().getSemaphoresAval();
+		t = this.position.getNextTroncon(this.sensDeplacement);
 	    } catch(OutOfRail ex) {
-		if(ex.type == OutOfRail.type.Butee)
+		if(ex.getType() == OutOfRail.TypeProbleme.BUTEE)
 		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
 		else
 		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
 	    }
+	    Collection<Semaphore> sems;
+	    if (this.sensDeplacement == Sens.AMONT) {
+		sems = t.getParent().getSemaphoresAmont();
+	    } else {
+		sems = t.getParent().getSemaphoresAval();
+	    }
+	    for(Semaphore sem : sems) {
+		sem.actionTrain(this);
+	    }
 	    this.deraillerAguillageAuMilieuDuTrain();
 
+	    vitesse
 	}
     }
 
@@ -62,7 +72,7 @@ public class Train {
 
 	while(i > 0) {
 	    try {
-		t = t.getSuivant(sensInverse);
+		t = t.getNextTroncon(sensInverse);
 	    } catch(OutOfRail ex) {
 		throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
 	    }
