@@ -130,7 +130,7 @@ public class SimulationReseauFerroviaire {
 
 	Horloge clock = new Horloge();
 	int i = 0;
-	while(i < 3) {
+	while(i < 15) {
 	    clock.tick();
 	    i++;
 	}
