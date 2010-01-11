@@ -59,7 +59,7 @@ public class Aiguillage extends ElementsJonction{
     /**
      * Relie deux rails par l'aiguillage
      * @param numRailAmont
-     *	    Numéro du rail amont désiré
+     *	    Numéro du rail amont désir?
      * @param numRailAval
      *	    Numéro du rail aval désiré
      */
