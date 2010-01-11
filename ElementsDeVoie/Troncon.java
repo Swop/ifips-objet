@@ -59,6 +59,23 @@ public class Troncon {
 	capteurs.add(capteur);
     }
 
+    public Troncon getPrecedent() {
+	return precedent;
+    }
+
+    public void setPrecedent(Troncon precedent) {
+	this.precedent = precedent;
+    }
+
+    public Troncon getSuivant() {
+	return suivant;
+    }
+
+    public void setSuivant(Troncon suivant) {
+	this.suivant = suivant;
+    }
+    
+
     /**
      * Envoie le tronçon suivant
      * @param sens
