@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * Tag Amont ou Aval pour le sens des elements des voies ou pour le deplacement du train
  * @author swop
  */
 
