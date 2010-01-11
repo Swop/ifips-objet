@@ -28,10 +28,10 @@ public class SimulationReseauFerroviaire {
 	trains = new ArrayList<Train>();
 	regulateurs = new ArrayList<ElementDeRegulation>();
 	// ******* Initialisation du reseau //
-	Rail r1 = new Rail(5);
-	Rail r2 = new Rail(5);
+	Rail r1 = new Rail(50);
+	Rail r2 = new Rail(50);
 
-	r2.addSemaphoreAmont(new ChangementVitesse(2));
+	r2.addSemaphoreAmont(new ChangementVitesse(7));
 
 	Jonction j1 = new Jonction();
 	j1.setAmont(r2);
@@ -40,12 +40,12 @@ public class SimulationReseauFerroviaire {
 	Aiguillage a1 = new Aiguillage();
 
 
-	Rail r3 = new Rail(5);
+	Rail r3 = new Rail(50);
 	a1.addAval(r3);
 	a1.addAval(r2);
 
-	Rail r4 = new Rail(5);
-	Rail r5 = new Rail(5);
+	Rail r4 = new Rail(50);
+	Rail r5 = new Rail(50);
 	a1.addAmont(r4);
 	a1.addAmont(r5);
 	try {
@@ -58,8 +58,8 @@ public class SimulationReseauFerroviaire {
 	a2.addAval(r3);
 
 
-	Rail r6 = new Rail(5);
-	Rail r7 = new Rail(5);
+	Rail r6 = new Rail(50);
+	Rail r7 = new Rail(50);
 	r7.addSemaphoreAval(new FeuTricolor());
 	a2.addAmont(r6);
 	a2.addAmont(r7);
@@ -72,7 +72,7 @@ public class SimulationReseauFerroviaire {
 	Jonction j2 = new Jonction();
 	j2.setAval(r7);
 
-	Rail r8 = new Rail(5);
+	Rail r8 = new Rail(50);
 	r8.addSemaphoreAmont(new PanneauRalentissement((float)0.5));
 	j2.setAmont(r8);
 
@@ -81,14 +81,14 @@ public class SimulationReseauFerroviaire {
 	a3.addAval(r6);
 	a3.addAval(r5);
 
-	Rail r9 = new Rail(5);
+	Rail r9 = new Rail(50);
 	Butee b = new Butee();
 	b.setRail(r9);
 	r9.setAmont(b);
 
 	a3.addAmont(r9);
 
-	Rail r10 = new Rail(5);
+	Rail r10 = new Rail(50);
 	r10.addSemaphoreAmont(new FeuTricolor());
 	a3.addAmont(r10);
 	try {
@@ -109,7 +109,7 @@ public class SimulationReseauFerroviaire {
 
 	// ******* Initialisation des trains //
 
-	Train t1 = new Train(1, 3, 1, r2.getPremierTroncon(), Sens.AMONT);
+	Train t1 = new Train(1, 3, 10, r2.getPremierTroncon(), Sens.AMONT);
 	trains.add(t1);
 
 	// ******* Horloge //
@@ -117,7 +117,9 @@ public class SimulationReseauFerroviaire {
 
 	Horloge clock = new Horloge();
 	int i = 0;
-	while(i < 10)
+	while(i < 20) {
 	    clock.tick();
+	    i++;
+	}
     }
 }
