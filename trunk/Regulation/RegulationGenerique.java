@@ -6,6 +6,7 @@
 package Regulation;
 
 import ElementsDeVoie.*;
+import Semaphore.FeuUnicolor;
 import Semaphore.Semaphore;
 import java.util.Random;
 import java.util.logging.Level;
@@ -26,7 +27,12 @@ public class RegulationGenerique extends ElementDeRegulation {
             } catch (TrainSurAiguillage ex) {
                 return;
             }
-
+            for (Semaphore s : a.getLienAmont().getSemaphoresAmont()) {
+                ((FeuUnicolor)s).setFeu1(false);
+                for (Rail ram : a.getAmont())
+                    for (Semaphore sam : ram.getSemaphoresAval())
+                        ((FeuUnicolor)sam).setFeu1(true);
+            }
         }
     }
 
