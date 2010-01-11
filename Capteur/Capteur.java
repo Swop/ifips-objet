@@ -31,7 +31,11 @@ public abstract class Capteur {
     public void setPosition(Troncon t){
         this.position=t;
     }
-    
+    /**
+     * Dit si au moins un train est passé pendant l'unité de temps.
+     * /!\Attention/!\ REINITIALISE LE CAPTEUR A INACTIF /!\Attention/!\
+     * @return boolean
+     */
     public boolean isActif(){
         if (this.actif){
             this.actif=false;
