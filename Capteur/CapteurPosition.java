@@ -5,6 +5,7 @@
 
 package Capteur;
 import ElementsDeVoie.*;
+import gestion_train.Sens;
 import gestion_train.Train;
 /**
  *
@@ -18,12 +19,10 @@ public class CapteurPosition extends Capteur{
 
 
     public void activer(Train t) {
-        this.train_detecté=t;
+        this.train_detectés.add(t);
         this.actif=true;
     }
 
     
-    public void update() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+   
 }
