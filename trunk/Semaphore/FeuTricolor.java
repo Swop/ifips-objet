@@ -58,6 +58,10 @@ public class FeuTricolor extends FeuBicolor {
 	    	
 	    }
 	    
+	    public String toString(){
+	    	return "feu tricolor";
+	    }
+	    
 	    /**
 	     * modifie la valeur de Feu2, puis Feu1 et Feu3 en conséquent
 	     * @param bool nouvelle valeur de Feu2

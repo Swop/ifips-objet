@@ -48,7 +48,10 @@ public class PanneauRalentissement extends Semaphore {
 	    public void setDiminution(float dimi){
 	    	this.Diminution=dimi;
 	    }
-
+	    
+	    public String toString(){
+	    	return "panneau ralentissement";
+	    }
 
 		/**
 		 * Modifie la vitesse du train en fonction de la valeur de Diminution
