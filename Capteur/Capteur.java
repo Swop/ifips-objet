@@ -16,9 +16,11 @@ import gestion_train.*;
 public abstract class Capteur {
 
     private Troncon position;
-
+    protected boolean actif;
+    protected Train train_detecté;
     public Capteur(Troncon p){
         this.position=p;
+
     }
 
     public Troncon getPosition(){
@@ -29,6 +31,10 @@ public abstract class Capteur {
         this.position=t;
     }
     
+    public boolean isActif(){
+        return this.actif;
+    }
+
     public abstract void activer(Train t);
     
 
