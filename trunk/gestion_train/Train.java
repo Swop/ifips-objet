@@ -25,11 +25,12 @@ public class Train {
     private int vitesseCourante;
 
 
-    public Train(int id, int taille, int vitesseMax, Troncon position) {
+    public Train(int id, int taille, int vitesseMax, Troncon position, Sens sens) {
 	this.id = id;
 	this.taille = taille;
 	this.vitesseMax = vitesseMax;
 	this.position = position;
+	this.sensDeplacement = sens;
     }
 
     public void avancer_rec(int pointMouvement) {

@@ -10,6 +10,7 @@ import Regulation.ElementDeRegulation;
 import Semaphore.ChangementVitesse;
 import Semaphore.FeuTricolor;
 import Semaphore.PanneauRalentissement;
+import gestion_train.Sens;
 import java.util.ArrayList;
 import gestion_train.Train;
 /**
@@ -83,7 +84,7 @@ public class SimulationReseauFerroviaire {
 
 	// ******* Initialisation des trains //
 
-	Train t1 = new Train(1, 3, 1, r2.getPremierTroncon());
+	Train t1 = new Train(1, 3, 1, r2.getPremierTroncon(), Sens.AMONT);
 	trains.add(t1);
 
 	// ******* Horloge //
