@@ -25,6 +25,7 @@ public class Train {
     private Sens sensDeplacement;
     private int vitesseCourante;
 
+
     public Train(int id, int taille, int vitesseMax, Troncon position) {
 	this.id = id;
 	this.taille = taille;
