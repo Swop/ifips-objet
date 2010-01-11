@@ -13,6 +13,8 @@ import Semaphore.PanneauRalentissement;
 import gestion_train.Sens;
 import java.util.ArrayList;
 import gestion_train.Train;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author swop
@@ -37,6 +39,7 @@ public class SimulationReseauFerroviaire {
 
 	Aiguillage a1 = new Aiguillage();
 
+
 	Rail r3 = new Rail(5);
 	a1.addAval(r3);
 	a1.addAval(r2);
@@ -45,15 +48,26 @@ public class SimulationReseauFerroviaire {
 	Rail r5 = new Rail(5);
 	a1.addAmont(r4);
 	a1.addAmont(r5);
+	try {
+	    a1.setLien(1, 2);
+	} catch (TrainSurAiguillage ex) {
+	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
+	}
 
 	Aiguillage a2 = new Aiguillage();
 	a2.addAval(r3);
+
 
 	Rail r6 = new Rail(5);
 	Rail r7 = new Rail(5);
 	r7.addSemaphoreAval(new FeuTricolor());
 	a2.addAmont(r6);
 	a2.addAmont(r7);
+	try {
+	    a2.setLien(1, 1);
+	} catch (TrainSurAiguillage ex) {
+	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
+	}
 
 	Jonction j2 = new Jonction();
 	j2.setAval(r7);
@@ -77,11 +91,21 @@ public class SimulationReseauFerroviaire {
 	Rail r10 = new Rail(5);
 	r10.addSemaphoreAmont(new FeuTricolor());
 	a3.addAmont(r10);
+	try {
+	    a3.setLien(2, 2);
+	} catch (TrainSurAiguillage ex) {
+	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
+	}
 
 	Aiguillage a4 = new Aiguillage();
 	a4.addAval(r10);
 	a4.addAval(r4);
 	a4.addAmont(r1);
+	try {
+	    a4.setLien(1, 1);
+	} catch (TrainSurAiguillage ex) {
+	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
+	}
 
 	// ******* Initialisation des trains //
 
