@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import Capteur.Capteur;
 import ElementsDeVoie.ElementsJonction.TypeJonction;
 import ElementsDeVoie.OutOfRail.TypeProbleme;
+import Semaphore.Semaphore;
 import gestion_train.Sens;
 
 /**
@@ -68,28 +69,45 @@ public class Troncon {
      *	    En cas de déraillement
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
-	if(suivant.equals(null)){
 	    switch(sens){
-		case AMONT : return precedent;
-		case AVAL : if(parent.getAval().getType().equals(TypeJonction.BUTEE)){
-				throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
+		case AMONT : if(precedent.equals(null)){
+				if(parent.getAmont().getType().equals(TypeJonction.BUTEE)){
+				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
+				}
+				if(parent.getAmont().getType().equals(TypeJonction.AIGUILLAGE)){
+				    throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				}
+				return ((Jonction)(parent.getAmont())).getAmont().getDernierTroncon();
 			    }
-			    if(parent.getAval().getType().equals(TypeJonction.AIGUILLAGE)){
-				throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+			    else{
+				return precedent;
 			    }
-			    return ((Jonction)(parent.getAval())).getAval().getPremierTroncon();
-		default : return this;
+		case AVAL : if(suivant.equals(null)){
+				if(parent.getAval().getType().equals(TypeJonction.BUTEE)){
+				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
+				}
+				if(parent.getAval().getType().equals(TypeJonction.AIGUILLAGE)){
+				    throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
+				}
+				return ((Jonction)(parent.getAval())).getAval().getPremierTroncon();
+			     }
+			    else{
+				return suivant;
+			    }
+		default : return null;
 	    }
-	}
-	else{
-	    switch(sens){
-		case AMONT : return precedent;
-		case AVAL : return suivant;
-		default : return this;
-	    }
-	}
     }
 
-
+    public LinkedList<Semaphore> testSemaphore(Sens sens){
+	switch(sens){
+	    case AMONT : if(precedent.equals(null)){
+				return parent.getSemaphoresAmont();
+			}; break;
+	    case AVAL : if(suivant.equals(null)){
+			    return parent.getSemaphoresAval();
+			};break;
+	}
+	return new LinkedList<Semaphore>();
+    }
 
 }
