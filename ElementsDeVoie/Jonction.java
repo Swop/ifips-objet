@@ -37,6 +37,7 @@ public class Jonction extends ElementsJonction{
 
     public void setAmont(Rail amont) {
 	this.amont = amont;
+	amont.setAval(this);
     }
 
     public Rail getAval() {
@@ -45,6 +46,7 @@ public class Jonction extends ElementsJonction{
 
     public void setAval(Rail aval) {
 	this.aval = aval;
+	aval.setAmont(this);
     }
 
     @Override
