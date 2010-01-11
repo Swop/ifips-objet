@@ -59,6 +59,7 @@ public class Rail extends ElementDeVoie{
 	    t2.setPrecedent(t1);
 	    t1 = t2;
 	}
+	t1.setSuivant(null);
 	this.dernierTroncon = t1;
 	this.amont = null;
 	this.aval = null;

@@ -87,7 +87,7 @@ public class Troncon {
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
 	    switch(sens){
-		case AMONT : if(precedent.equals(null)){
+		case AMONT : if(precedent == null){
 				if(parent.getAmont().getType().equals(TypeJonction.BUTEE)){
 				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
 				}
