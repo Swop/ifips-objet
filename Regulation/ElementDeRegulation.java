@@ -15,9 +15,15 @@ import Capteur.*;
  * @author po
  */
 public abstract class ElementDeRegulation {
-    private ArrayList<Aiguillage> aguillages;
-    private ArrayList<Capteur> capteurs;
-    private ArrayList<Semaphore> semaphores;
+    protected ArrayList<Aiguillage> aguillages;
+    protected ArrayList<Capteur> capteurs;
+    protected ArrayList<Semaphore> semaphores;
+
+    public ElementDeRegulation(){
+        this.aguillages = new ArrayList<Aiguillage>();
+        this.capteurs = new ArrayList<Capteur>();
+        this.semaphores = new ArrayList<Semaphore>();
+    }
 
     public void addAiguillage(Aiguillage a){
         this.aguillages.add(a);
