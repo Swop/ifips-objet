@@ -37,6 +37,7 @@ public class Troncon {
 
     public Troncon(Rail parent) {
 	this.parent = parent;
+	this.capteurs = new LinkedList<Capteur>();
     }
 
     public Rail getParent() {
@@ -129,10 +130,10 @@ public class Troncon {
     public LinkedList<Semaphore> getSemaphore(Sens sens){
 	System.out.println("Ils sont beaux mes sémaphores !");
 	switch(sens){
-	    case AMONT : if(precedent.equals(null)){
+	    case AMONT : if(precedent == null){
 				return parent.getSemaphoresAmont();
 			}; break;
-	    case AVAL : if(suivant.equals(null)){
+	    case AVAL : if(suivant == null){
 			    return parent.getSemaphoresAval();
 			};break;
 	}
