@@ -56,7 +56,7 @@ public class Train {
 	    }
 	    this.deraillerAguillageAuMilieuDuTrain();
 
-	    vitesse
+	    //vitesse
 	}
     }
 
