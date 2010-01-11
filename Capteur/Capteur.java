@@ -20,6 +20,7 @@ public abstract class Capteur {
     
     public Capteur(Troncon p){
         this.position=p;
+        p.addCapteurs(this);
        
     }
 
