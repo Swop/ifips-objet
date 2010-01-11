@@ -7,6 +7,7 @@ package ElementsDeVoie;
 
 import java.util.LinkedList;
 import gestion_train.Train;
+import Main.SimulationReseauFerroviaire;
 
 /**
  *
