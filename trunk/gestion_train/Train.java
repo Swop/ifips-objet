@@ -32,6 +32,12 @@ public class Train {
 	this.position = position;
     }
 
+    public void avancer_rec(int pointMouvement) {
+	// Point mouvements
+	// Semaphore ?
+	    //Pour tt semaphore -> changer vitesse courante
+    }
+
     public void avancer() throws ProblemeTrain {
 	//int i = this.vitesseCourante;
 	

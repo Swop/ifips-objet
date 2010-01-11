@@ -22,6 +22,8 @@ public class SimulationReseauFerroviaire {
 
     public static void main(String args[]) {
 
+	trains = new ArrayList<Train>();
+	regulateurs = new ArrayList<ElementDeRegulation>();
 	// ******* Initialisation du reseau //
 	Rail r1 = new Rail(5);
 	Rail r2 = new Rail(5);
