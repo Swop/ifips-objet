@@ -57,12 +57,20 @@ public class Aiguillage extends ElementsJonction{
 	this.amont = amont;
     }
 
+    public void addAmont(Rail amont){
+	this.amont.add(amont);
+    }
+
     public LinkedList<Rail> getAval() {
 	return aval;
     }
 
     public void setAval(LinkedList<Rail> aval) {
 	this.aval = aval;
+    }
+
+    public void addAval(Rail aval){
+	this.aval.add(aval);
     }
 
     public Rail getLienAmont() {
