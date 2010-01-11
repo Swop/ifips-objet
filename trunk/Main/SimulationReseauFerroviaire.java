@@ -49,7 +49,7 @@ public class SimulationReseauFerroviaire {
 	a1.addAmont(r4);
 	a1.addAmont(r5);
 	try {
-	    a1.setLien(1, 2);
+	    a1.setLien(0, 1);
 	} catch (TrainSurAiguillage ex) {
 	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
 	}
@@ -64,7 +64,7 @@ public class SimulationReseauFerroviaire {
 	a2.addAmont(r6);
 	a2.addAmont(r7);
 	try {
-	    a2.setLien(1, 1);
+	    a2.setLien(0, 0);
 	} catch (TrainSurAiguillage ex) {
 	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
 	}
@@ -92,7 +92,7 @@ public class SimulationReseauFerroviaire {
 	r10.addSemaphoreAmont(new FeuTricolor());
 	a3.addAmont(r10);
 	try {
-	    a3.setLien(2, 2);
+	    a3.setLien(1, 1);
 	} catch (TrainSurAiguillage ex) {
 	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
 	}
@@ -102,7 +102,7 @@ public class SimulationReseauFerroviaire {
 	a4.addAval(r4);
 	a4.addAmont(r1);
 	try {
-	    a4.setLien(1, 1);
+	    a4.setLien(0, 0);
 	} catch (TrainSurAiguillage ex) {
 	    //Logger.getLogger(SimulationReseauFerroviaire.class.getName()).log(Level.SEVERE, null, ex);
 	}
