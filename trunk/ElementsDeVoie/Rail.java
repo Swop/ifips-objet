@@ -51,6 +51,7 @@ public class Rail extends ElementDeVoie{
 
     public Rail(int taille){
 	Troncon t1 = new Troncon(this);
+	this.premierTroncon = t1;
 	t1.setPrecedent(null);
 	for(int i=1; i<taille; i++){
 	    Troncon t2 = new Troncon(this);
@@ -58,6 +59,12 @@ public class Rail extends ElementDeVoie{
 	    t2.setPrecedent(t1);
 	    t1 = t2;
 	}
+	this.dernierTroncon = t1;
+	this.amont = null;
+	this.aval = null;
+	this.semaphoresAmont = new LinkedList();
+	this.semaphoresAval = new LinkedList();
+
     }
 
     public ElementsJonction getAmont() {
