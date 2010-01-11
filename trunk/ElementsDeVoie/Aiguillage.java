@@ -6,6 +6,7 @@
 package ElementsDeVoie;
 
 import java.util.LinkedList;
+import gestion_train.Train;
 
 /**
  *
@@ -17,7 +18,6 @@ public class Aiguillage extends ElementsJonction{
      * Liste des rails sortants de l'aiguillage
      */
     private LinkedList<Rail> amont;
-
     /**
      * Liste des rails entrant de l'aiguillage
      */
@@ -26,10 +26,20 @@ public class Aiguillage extends ElementsJonction{
      * Lien actuel de l'aiguillage
      */
     private LinkedList<Rail> lien;
+    /**
+     * Compteur des IDs des aiguillages
+     */
+    private static int compteurId = 0;
+    /**
+     * ID de l'aiquillage
+     */
+    private int id;
 
     public Aiguillage(LinkedList<Rail> amont, LinkedList<Rail> aval) {
 	this.amont = amont;
 	this.aval = aval;
+	this.id = compteurId;
+	compteurId ++;
     }
 
     public LinkedList<Rail> getAmont() {
@@ -62,8 +72,17 @@ public class Aiguillage extends ElementsJonction{
      *	    Numéro du rail amont désiré
      * @param numRailAval
      *	    Numéro du rail aval désiré
+     * @throws TrainSurAiguillage
+     *	    Si le train est sur l'aiguillage
      */
-    public void setLien(int numRailAmont, int numRailAval) {
+    public void setLien(int numRailAmont, int numRailAval)throws TrainSurAiguillage {
+	for(Train t : Main.trains){
+	    for(int i = t.getTaille(); i>0; i--){
+		switch(t.getSensDeplacement()){
+		    case AMONT : t.getPosition().getSuivant()
+		}
+	    }
+	}
 	if(numRailAmont >= 0 && numRailAmont < amont.size()){
 	   if(numRailAval >= 0 && numRailAval < aval.size()){
 		this.lien.clear();

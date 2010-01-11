@@ -31,7 +31,16 @@ public class Rail extends ElementDeVoie{
 	this.semaphoresAval = semaphoresAval;
     }
 
-   
+    public Rail(int taille){
+	Troncon t1 = new Troncon(this);
+	t1.setPrecedent(null);
+	for(int i=1; i<taille; i++){
+	    Troncon t2 = new Troncon(this);
+	    t1.setSuivant(t2);
+	    t2.setPrecedent(t1);
+	    t1 = t2;
+	}
+    }
 
     public ElementsJonction getAmont() {
 	return amont;
