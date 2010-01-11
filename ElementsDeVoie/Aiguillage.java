@@ -42,6 +42,13 @@ public class Aiguillage extends ElementsJonction{
 	compteurId ++;
     }
 
+    public Aiguillage(){
+	this.amont = new LinkedList<Rail>();
+	this.aval = new LinkedList<Rail>();
+	this.id = compteurId;
+	compteurId ++;
+    }
+
     public LinkedList<Rail> getAmont() {
 	return amont;
     }
