@@ -32,7 +32,7 @@ public class Aiguillage extends ElementsJonction{
      */
     private static int compteurId = 0;
     /**
-     * ID de l'aiquillage
+     * ID de l'aiguillage
      */
     private int id;
 
