@@ -96,7 +96,7 @@ public class Troncon {
 					throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
 				    }
 				    else{
-					((Aiguillage)(parent.getAmont())).getLienAmont().getDernierTroncon();
+					return ((Aiguillage)(parent.getAmont())).getLienAmont().getDernierTroncon();
 				    }
 				}
 				return ((Jonction)(parent.getAmont())).getAmont().getDernierTroncon();
@@ -113,7 +113,7 @@ public class Troncon {
 					throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
 				    }
 				    else{
-					((Aiguillage)(parent.getAval())).getLienAval().getPremierTroncon();
+					return ((Aiguillage)(parent.getAval())).getLienAval().getPremierTroncon();
 				    }
 				}
 				return ((Jonction)(parent.getAval())).getAval().getPremierTroncon();
