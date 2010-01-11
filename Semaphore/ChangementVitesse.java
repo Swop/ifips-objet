@@ -7,9 +7,7 @@
 
 package Semaphore;
 
-import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Rail;
 
 /**
  *
@@ -26,12 +24,9 @@ public class ChangementVitesse extends Semaphore {
 	
 	/**
 	 * constructeur de ChangementVitesse
-	 * @param sens sens du ChangementVitesse	
-	 * @param rail rail du ChangementVitesse
 	 * @param vitesse vitesse indiqu par le panneau
 	 */
-	public ChangementVitesse(Sens sens, Rail rail,int vitesse) {
-		super(sens, rail);
+	public ChangementVitesse(int vitesse) {
 		if(vitesse<0)this.Vitesse=0;
 		else this.Vitesse=vitesse;
 	}

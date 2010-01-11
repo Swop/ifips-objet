@@ -31,7 +31,6 @@ public class PanneauRalentissement extends Semaphore {
 	 * @param diminution diminution de vitesse indique par PanneauRalentissement
 	 */
 	public PanneauRalentissement(Sens sens, Rail rail,float diminution) {
-		super(sens, rail);
 		if(diminution<0)this.Diminution=0;
 		else if(diminution>1)this.Diminution=1;
 		else this.Diminution=diminution;

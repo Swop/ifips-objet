@@ -30,12 +30,9 @@ public abstract class Semaphore {
 	
 	/**
 	 * constructeur de Semaphore
-	 * @param sens la direction du semaphore
-	 * @param rail rail du semaphore sur le rail
+
 	 */
-	public Semaphore (Sens sens,Rail rail) {
-		this.SemaSens=sens;
-		this.SemaRail=rail;
+	public Semaphore () {
 	};
 	
 	/**
