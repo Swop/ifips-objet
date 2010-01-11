@@ -19,7 +19,6 @@ public class CapteurPosition extends Capteur{
 
 
     public void activer(Train t) {
-        this.train_detectés.add(t);
         this.actif=true;
     }
 

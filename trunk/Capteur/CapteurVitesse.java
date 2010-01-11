@@ -6,19 +6,21 @@
 package Capteur;
 import ElementsDeVoie.*;
 import gestion_train.Train;
+import java.util.ArrayList;
 /**
  *
  * @author po
  */
 public class CapteurVitesse extends Capteur {
-
+    protected ArrayList<Float> vitesses_detectés;
     CapteurVitesse(Troncon p){
         super(p);
+        this.vitesses_detectés = new ArrayList<Float>();
     }
 
 
     public void activer(Train t) {
-        this.train_detectés.add(t);
+        this.vitesses_detectés.add(t.getVitesseCourante());
         this.actif=true;
     }
     /**
@@ -29,11 +31,11 @@ public class CapteurVitesse extends Capteur {
      */
     public float getVitesse(){
         float v = 0;
-        for (Train t : train_detectés){
-            v+= t.getVitesseCourante();
+        for (float t : vitesses_detectés){
+            v+= t;
         }
-        v/=train_detectés.size();
-        this.train_detectés.clear();
+        v/=vitesses_detectés.size();
+        this.vitesses_detectés.clear();
         return v;
     }
   

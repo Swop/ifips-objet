@@ -18,10 +18,10 @@ public abstract class Capteur {
 
     private Troncon position;
     protected boolean actif;
-    protected ArrayList<Train> train_detectés;
+    
     public Capteur(Troncon p){
         this.position=p;
-        this.train_detectés=new ArrayList<Train>();
+       
     }
 
     public Troncon getPosition(){
