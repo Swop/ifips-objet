@@ -7,7 +7,6 @@ package Capteur;
 
 import gestion_train.*;
 import ElementsDeVoie.*;
-import gestion_train.*;
 import java.util.ArrayList;
 
 /**
