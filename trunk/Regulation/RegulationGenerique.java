@@ -5,6 +5,7 @@
 
 package Regulation;
 
+import Capteur.Capteur;
 import ElementsDeVoie.*;
 import Semaphore.FeuUnicolor;
 import Semaphore.Semaphore;
@@ -49,6 +50,7 @@ public class RegulationGenerique extends ElementDeRegulation {
                     if (!this.getSemaphore().contains(sam))
                         ((FeuUnicolor)sam).setFeu1(true);
             }
+            for (Capteur c : this.capteurs) if (c.isActif()) System.out.println("Oulalala ya un train en "+c.getPosition().toString());
         }
     }
 
