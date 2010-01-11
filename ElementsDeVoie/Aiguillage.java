@@ -91,7 +91,7 @@ public class Aiguillage extends ElementsJonction{
      *	    Si le train est sur l'aiguillage
      */
     public void setLien(int numRailAmont, int numRailAval)throws TrainSurAiguillage {
-	for(Train t : Main.trains){
+	for(Train t : SimulationReseauFerroviaire.trains){
 	    Troncon position = t.getPosition();
 	    for(int i = t.getTaille(); i>0; i--){
 		switch(t.getSensDeplacement()){
@@ -99,12 +99,30 @@ public class Aiguillage extends ElementsJonction{
 				    if(position.getSuivant().getParent().getAmont().equals(this)){
 					throw new TrainSurAiguillage("Il y a un train !");
 				    }
+				    else{
+					switch(position.getParent().getAmont().getType()){
+					    case BUTEE : continue;
+					    case JONCTION : position = ((Jonction)(position.getParent().getAmont())).getAmont().getDernierTroncon();
+							    continue;
+					    case AIGUILLAGE : position = ((Aiguillage)(position.getParent().getAmont())).getLienAmont().getDernierTroncon();
+								continue;
+					}
+				    }
 				 }
 				 position = position.getSuivant();
 				 break;
 		    case AVAL : if(position.getPrecedent().equals(null)){
 				    if(position.getPrecedent().getParent().getAval().equals(this)){
 					throw new TrainSurAiguillage("Il y a un train !");
+				    }
+				    else{
+					switch(position.getParent().getAval().getType()){
+					    case BUTEE : continue;
+					    case JONCTION : position = ((Jonction)(position.getParent().getAval())).getAval().getPremierTroncon();
+							    continue;
+					    case AIGUILLAGE : position = ((Aiguillage)(position.getParent().getAval())).getLienAval().getPremierTroncon();
+								continue;
+					}
 				    }
 				 }
 				 position = position.getPrecedent();
