@@ -53,7 +53,7 @@ public class SimulationReseauFerroviaire {
 	j2.setAval(r7);
 
 	Rail r8 = new Rail(5);
-	r8.addSemaphoreAmont(new PanneauRalentissement());
+	r8.addSemaphoreAmont(new PanneauRalentissement((float)0.5));
 	j2.setAmont(r8);
 
 	Aiguillage a3 = new Aiguillage();
