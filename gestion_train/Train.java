@@ -109,7 +109,7 @@ public class Train {
 		    throw new ProblemeTrain("Le train "+this.id+" a depasse une butee.", ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
 		else
 		    throw new ProblemeTrain("Le train "+this.id+" a deraille sur un aguillage.", ProblemeTrain.TypeProbleme.DERAILLER);
-	    }
+	;    }
 	    // Appel recursif
 	    avancer_rec(pointMouvement - 1);
 	}
