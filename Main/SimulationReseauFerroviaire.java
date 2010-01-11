@@ -1,7 +1,10 @@
 package Main;
 
+import Capteur.Capteur;
+import Capteur.CapteurPosition;
 import ElementsDeVoie.*;
 import Regulation.ElementDeRegulation;
+import Regulation.RegulationGenerique;
 import Semaphore.ChangementVitesse;
 import Semaphore.FeuTricolor;
 import Semaphore.PanneauRalentissement;
@@ -44,7 +47,11 @@ public class SimulationReseauFerroviaire {
 	j1.setAval(r1);
 
 	Aiguillage a1 = new Aiguillage();
-
+        RegulationGenerique el1 = new RegulationGenerique();
+        el1.addAiguillage(a1);
+        Capteur c2 = new CapteurPosition(r2.getPremierTroncon());
+        el1.addCapteur(c2);
+        regulateurs.add(el1);
 
 	Rail r3 = new Rail(50);
 	a1.addAval(r3);
