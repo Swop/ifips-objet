@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Main;
 
 import ElementsDeVoie.*;
@@ -13,20 +8,31 @@ import Semaphore.PanneauRalentissement;
 import gestion_train.Sens;
 import java.util.ArrayList;
 import gestion_train.Train;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
- *
+ *  Classe principale du programme
  * @author swop
  */
 public class SimulationReseauFerroviaire {
+    /**
+     * Liste des trains
+     */
     public static ArrayList<Train> trains;
+    /**
+     * Liste des regulateurs d'elements
+     */
     public static ArrayList<ElementDeRegulation> regulateurs;
 
+    /**
+     * Point d'entree du programme
+     * @param args
+     *	Arguments de la ligne de commande
+     */
     public static void main(String args[]) {
 
 	trains = new ArrayList<Train>();
 	regulateurs = new ArrayList<ElementDeRegulation>();
+
+
 	// ******* Initialisation du reseau //
 	Rail r1 = new Rail(50);
 	Rail r2 = new Rail(50);
@@ -117,7 +123,7 @@ public class SimulationReseauFerroviaire {
 
 	Horloge clock = new Horloge();
 	int i = 0;
-	while(i < 20) {
+	while(i < 3) {
 	    clock.tick();
 	    i++;
 	}

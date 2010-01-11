@@ -1,16 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package gestion_train;
 
 /**
- *
+ * Exception generee due a un depassement de butee d'un train ou un deraillement de celui-ci.
  * @author swop
  */
 public class ProblemeTrain extends Exception {
-
+    /**
+     * Type du probleme (deraillement ou depassement de butee)
+     */
     public static enum TypeProbleme { DERAILLER, DEPASSEMENT_BUTEE };
     private TypeProbleme type;
 
@@ -30,4 +27,9 @@ public class ProblemeTrain extends Exception {
         super(msg);
 	this.type = type;
     }
+
+    public TypeProbleme getType() {
+	return type;
+    }
+
 }
