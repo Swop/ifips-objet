@@ -8,7 +8,7 @@ package Semaphore;
 
 import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Troncon;
+import ElementsDeVoie.Rail;
 
 /**
  *
@@ -21,15 +21,15 @@ public class FeuTricolor extends FeuBicolor {
 	/**
 	 * definition de Feu3
 	 */
-	boolean Feu3;
+	protected boolean Feu3;
 	
 	/**
 	 * constructeur de FeuTricolor
 	 * @param sens sens du semaphore
-	 * @param position position du semaphore
+	 * @param rail rail du semaphore
 	 */
-	public FeuTricolor (Sens sens,Troncon position) {
-		super(sens,position);
+	public FeuTricolor (Sens sens,Rail rail) {
+		super(sens,rail);
 		super.Feu1=false;
 		super.Feu2=false;//Feu Orange
 		this.Feu3=true;//Feu Rouge
@@ -40,7 +40,7 @@ public class FeuTricolor extends FeuBicolor {
 	     * renvoie la valeur de Feu3
 	     * @return valeur de Feu3 (Vrai ou Faux)
 	     */
-	    public boolean getFeu3d(){
+	    public boolean getFeu3(){
 	    	return Feu3;
 	    }
 	    
@@ -102,7 +102,7 @@ public class FeuTricolor extends FeuBicolor {
 		 */
 		public void actionTrain(Train t) {
 			if(Feu1 && t.getVitesseCourante()==0)t.setVitessePourcentage((float)0.50);
-			else if(Feu2) t.setVitessePourcentage((float)0.01);
+			else if(Feu2) t.setVitessePourcentage((float)0.25);
 			else if(Feu3)t.setVitessePourcentage(0);
 		}
 	

@@ -7,7 +7,7 @@ package Semaphore;
 
 import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Troncon;
+import ElementsDeVoie.Rail;
 
 /**
  *
@@ -26,24 +26,24 @@ public abstract class Semaphore {
 	/**
 	 *Position du semaphore sur le rail
 	 */
-	private Troncon Position; 
+	private Rail SemaRail; 
 	
 	/**
 	 * constructeur de Semaphore
 	 * @param sens la direction du semaphore
-	 * @param position position du semaphore sur le rail
+	 * @param rail rail du semaphore sur le rail
 	 */
-	public Semaphore (Sens sens,Troncon position) {
+	public Semaphore (Sens sens,Rail rail) {
 		this.SemaSens=sens;
-		this.Position=position;
+		this.SemaRail=rail;
 	};
 	
 	/**
 	 * renvoie la position du semaphore sur le rail
 	 * @return position du semaphore
 	 */
-	public Troncon getPosition(){
-		return Position;
+	public Rail getPosition(){
+		return SemaRail;
 	}
 
 	/**
@@ -58,8 +58,8 @@ public abstract class Semaphore {
 	 * modifie la position du semaphore sur le rail
 	 * @param position la nouvelle position du semaphore
 	 */
-	public void setPosition(Troncon position){
-		this.Position=position;
+	public void setPosition(Rail rail){
+		this.SemaRail=rail;
 	}
 	
 	/**

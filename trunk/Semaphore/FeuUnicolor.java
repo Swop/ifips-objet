@@ -9,7 +9,7 @@ package Semaphore;
 
 import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Troncon;
+import ElementsDeVoie.Rail;
 
 /**
  *
@@ -27,10 +27,10 @@ public class FeuUnicolor extends Semaphore {
 	/**
 	 * constructeur de FeuUnicolor
 	 * @param sens sens du FeuUnicolor	
-	 * @param position position du FeuUnicolor
+	 * @param rail rail du FeuUnicolor
 	 */
-	public FeuUnicolor (Sens sens,Troncon position) {
-		super(sens,position);
+	public FeuUnicolor (Sens sens,Rail rail) {
+		super(sens,rail);
 		this.Feu1=false;//Feu Vert
 			
 	    };
