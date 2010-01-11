@@ -20,6 +20,10 @@ public class Butee extends ElementsJonction{
 	this.rail = rail;
     }
 
+    public Butee(){
+	this.rail = null;
+    }
+
     public Rail getRail() {
 	return rail;
     }
