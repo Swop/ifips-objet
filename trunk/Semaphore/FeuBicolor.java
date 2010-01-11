@@ -7,9 +7,7 @@
 
 package Semaphore;
 
-import gestion_train.Sens;
 import gestion_train.Train;
-import ElementsDeVoie.Rail;
 
 /**
  *
@@ -26,11 +24,8 @@ public class FeuBicolor extends FeuUnicolor {
 	
 	/**
 	 * constructeur de FeuBicolor
-	 * @param sens sens du semaphore
-	 * @param rail rail du semaphore
 	 */
-	public FeuBicolor (Sens sens,Rail rail) {
-		super(sens,rail);
+	public FeuBicolor () {
 		super.Feu1=false;//Feu Vert	
 		this.Feu2=true;//Feu Rouge
 			
