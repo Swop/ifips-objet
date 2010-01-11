@@ -92,9 +92,23 @@ public class Aiguillage extends ElementsJonction{
      */
     public void setLien(int numRailAmont, int numRailAval)throws TrainSurAiguillage {
 	for(Train t : Main.trains){
+	    Troncon position = t.getPosition();
 	    for(int i = t.getTaille(); i>0; i--){
 		switch(t.getSensDeplacement()){
-		    case AMONT : t.getPosition().getSuivant()
+		    case AMONT : if(position.getSuivant().equals(null)){
+				    if(position.getSuivant().getParent().getAmont().equals(this)){
+					throw new TrainSurAiguillage("Il y a un train !");
+				    }
+				 }
+				 position = position.getSuivant();
+				 break;
+		    case AVAL : if(position.getPrecedent().equals(null)){
+				    if(position.getPrecedent().getParent().getAval().equals(this)){
+					throw new TrainSurAiguillage("Il y a un train !");
+				    }
+				 }
+				 position = position.getPrecedent();
+				 break;
 		}
 	    }
 	}
