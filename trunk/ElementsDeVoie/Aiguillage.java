@@ -140,7 +140,7 @@ public class Aiguillage extends ElementsJonction{
 		this.lien.clear();
 		this.lien.add(amont.get(numRailAmont));
 		this.lien.add(aval.get(numRailAval));
-		System.out.println("C'est linké !");
+		System.out.println("C'est linké en "+numRailAmont+" - "+numRailAval);
 	    }
 	}
     }

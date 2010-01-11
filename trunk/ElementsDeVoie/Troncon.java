@@ -87,7 +87,7 @@ public class Troncon {
      *	    En cas de déraillement
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
-	System.out.println("Attention, on passe au tronçon suivant !");
+	//System.out.println("Attention, on passe au tronçon suivant !");
 	switch(sens){
 		case AMONT : if(precedent == null){
 				if(parent.getAmont().getType().equals(TypeJonction.BUTEE)){
@@ -128,7 +128,7 @@ public class Troncon {
     }
 
     public LinkedList<Semaphore> getSemaphore(Sens sens){
-	System.out.println("Ils sont beaux mes sémaphores !");
+	//System.out.println("Ils sont beaux mes sémaphores !");
 	switch(sens){
 	    case AMONT : if(precedent == null){
 				return parent.getSemaphoresAmont();
