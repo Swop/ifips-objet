@@ -106,7 +106,7 @@ public class Troncon {
 			    else{
 				return precedent;
 			    }
-		case AVAL : if(suivant.equals(null)){
+		case AVAL : if(suivant == null){
 				if(parent.getAval().getType().equals(TypeJonction.BUTEE)){
 				    throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
 				}
