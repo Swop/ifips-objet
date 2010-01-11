@@ -29,7 +29,7 @@ public class RegulationGenerique extends ElementDeRegulation {
 
         for (Aiguillage a : this.aguillages){
             try {
-                a.setLien(ia.nextInt(a.getAmont().size()-1), ia.nextInt(a.getAval().size()-1));
+                a.setLien(ia.nextInt(a.getAmont().size()), ia.nextInt(a.getAval().size()));
             } catch (TrainSurAiguillage ex) {
                 return;
             }
