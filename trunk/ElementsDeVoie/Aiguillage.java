@@ -65,7 +65,7 @@ public class Aiguillage extends ElementsJonction{
      */
     public void setLien(int numRailAmont, int numRailAval) {
 	if(numRailAmont >= 0 && numRailAmont < amont.size()){
-	   if(numRailAval >= 0 && numRailAval < amont.size()){
+	   if(numRailAval >= 0 && numRailAval < aval.size()){
 		this.lien.clear();
 		this.lien.add(amont.get(numRailAmont));
 		this.lien.add(aval.get(numRailAval));
