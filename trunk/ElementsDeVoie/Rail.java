@@ -14,11 +14,29 @@ import Semaphore.*;
  */
 public class Rail extends ElementDeVoie{
 
+    /**
+     * Premier tronçon du rail
+     */
     private Troncon premierTroncon;
+    /**
+     * Dernier tronçon du rail
+     */
     private Troncon dernierTroncon;
+    /**
+     * Jonction en amont
+     */
     private ElementsJonction amont;
+    /**
+     * Jonction en aval
+     */
     private ElementsJonction aval;
+    /**
+     * Sémaphores pour les trains allant en amont
+     */
     private LinkedList<Semaphore> semaphoresAmont;
+    /**
+     * Sémaphores pour les trains allant en aval;
+     */
     private LinkedList<Semaphore> semaphoresAval;
 
     public Rail(int taille, Troncon premierTroncon, Troncon dernierTroncon, ElementsJonction amont, ElementsJonction aval, LinkedList<Semaphore> semaphoresAmont, LinkedList<Semaphore> semaphoresAval) {
@@ -66,12 +84,20 @@ public class Rail extends ElementDeVoie{
 	this.semaphoresAmont = semaphoresAmont;
     }
 
+    public void addSemaphoreAmont(Semaphore sem){
+	this.semaphoresAmont.add(sem);
+    }
+
     public LinkedList<Semaphore> getSemaphoresAval() {
 	return semaphoresAval;
     }
 
     public void setSemaphoresAval(LinkedList<Semaphore> semaphoresAval) {
 	this.semaphoresAval = semaphoresAval;
+    }
+
+    public void addSemaphoreAval(Semaphore sem){
+	this.semaphoresAval.add(sem);
     }
 
     public Troncon getDernierTroncon() {

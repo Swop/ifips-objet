@@ -26,6 +26,11 @@ public class Jonction extends ElementsJonction{
 	this.aval = aval;
     }
 
+    public Jonction(){
+	this.amont = null;
+	this.aval = null;
+    }
+
     public Rail getAmont() {
 	return amont;
     }
