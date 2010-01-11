@@ -28,6 +28,7 @@ public class RegulationGenerique extends ElementDeRegulation {
     public void reguler() {
 
         for (Aiguillage a : this.aguillages){
+             System.out.println("Echange des liens de l'aiguillage "+a.toString());
             try {
                 a.setLien(ia.nextInt(a.getAmont().size()), ia.nextInt(a.getAval().size()));
             } catch (TrainSurAiguillage ex) {
@@ -37,7 +38,7 @@ public class RegulationGenerique extends ElementDeRegulation {
                 if (c.isActif())
                     System.out.println("Oulalala ya un train en "+c.getPosition().toString());
                 else System.out.println("j'ai testé le capteur "+c.getPosition().toString());
-            System.out.println("Echange des liens et tentative de mise à jour feu");
+           
 
             for (Semaphore s : a.getLienAmont().getSemaphoresAval()) {
                 ((FeuUnicolor)s).setFeu1(false);
