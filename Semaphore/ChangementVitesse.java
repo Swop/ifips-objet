@@ -55,5 +55,9 @@ public class ChangementVitesse extends Semaphore {
 		public void actionTrain(Train t) {
 			 t.setVitesseScalaire(Vitesse);
 		}
+		
+		public String toString(){
+	    	return "changement vitesse";
+	    }
 	    
 }

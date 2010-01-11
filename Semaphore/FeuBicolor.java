@@ -56,6 +56,10 @@ public class FeuBicolor extends FeuUnicolor {
 	    	this.Feu2=bool;
 	    	this.Feu1=!bool;
 	    }
+	   
+	    public String toString(){
+	    	return "feu bicolor";
+	    }
 	    
 	    /**
 		 * Modifie la vitesse du train

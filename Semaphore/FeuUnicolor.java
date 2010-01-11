@@ -46,7 +46,9 @@ public class FeuUnicolor extends Semaphore {
 	    	this.Feu1=bool;
 	    }
 
-
+	    public String toString(){
+	    	return "feu unicolor";
+	    }
 		/**
 		 * Modifie la vitesse du train en fonction de la valeur de Feu1
 		 */
