@@ -58,15 +58,19 @@ public class Aiguillage extends ElementsJonction{
 
     /**
      * Relie deux rails par l'aiguillage
-     * @param amont
-     *	    Rail amont
-     * @param aval
-     *	    Rail aval
+     * @param numRailAmont
+     *	    Numéro du rail amont désiré
+     * @param numRailAval
+     *	    Numéro du rail aval désiré
      */
-    public void setLien(Rail amont, Rail aval) {
-	this.lien.clear();
-	this.lien.add(amont);
-	this.lien.add(aval);
+    public void setLien(int numRailAmont, int numRailAval) {
+	if(numRailAmont >= 0 && numRailAmont < amont.size()){
+	   if(numRailAval >= 0 && numRailAval < amont.size()){
+		this.lien.clear();
+		this.lien.add(amont.get(numRailAmont));
+		this.lien.add(aval.get(numRailAval));
+	    }
+	}
     }
 
     @Override
