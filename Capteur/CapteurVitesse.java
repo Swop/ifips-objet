@@ -12,15 +12,15 @@ import java.util.ArrayList;
  * @author po
  */
 public class CapteurVitesse extends Capteur {
-    protected ArrayList<Float> vitesses_detectés;
+    protected ArrayList<Float> vitesses_detectees;
     CapteurVitesse(Troncon p){
         super(p);
-        this.vitesses_detectés = new ArrayList<Float>();
+        this.vitesses_detectees = new ArrayList<Float>();
     }
 
 
     public void activer(Train t) {
-        this.vitesses_detectés.add(t.getVitesseCourante());
+        this.vitesses_detectees.add(t.getVitesseCourante());
         this.actif=true;
     }
     /**
@@ -31,11 +31,11 @@ public class CapteurVitesse extends Capteur {
      */
     public float getVitesse(){
         float v = 0;
-        for (float t : vitesses_detectés){
+        for (float t : vitesses_detectees){
             v+= t;
         }
-        v/=vitesses_detectés.size();
-        this.vitesses_detectés.clear();
+        v/=vitesses_detectees.size();
+        this.vitesses_detectees.clear();
         return v;
     }
   
