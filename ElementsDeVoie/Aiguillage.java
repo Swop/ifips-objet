@@ -149,5 +149,4 @@ public class Aiguillage extends ElementsJonction{
     public TypeJonction getType() {
 	return TypeJonction.AIGUILLAGE;
     }
-
 }
