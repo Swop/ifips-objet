@@ -32,11 +32,13 @@ public class Train {
 	this.id = id;
 	this.taille = taille;
 	this.vitesseMax = vitesseMax;
+	this.vitesseCourante = vitesseMax;
 	this.position = position;
 	this.sensDeplacement = sens;
     }
 
     public void avancer_rec(int pointMouvement) throws ProblemeTrain {
+	System.out.println("PM : "+pointMouvement);
 	//Capteurs
 	Troncon t = this.position;
 	int tailleRec = this.taille;
@@ -78,7 +80,7 @@ public class Train {
 		else
 		    throw new ProblemeTrain("Le train "+this.id+" a deraille sur un aguillage.", ProblemeTrain.TypeProbleme.DERAILLER);
 	    }
-	    avancer_rec(pointMouvement--);
+	    avancer_rec(pointMouvement - 1);
 	}
     }
 
