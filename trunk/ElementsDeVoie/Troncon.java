@@ -25,6 +25,14 @@ public class Troncon {
      * Capteurs présents sur le tronçon
      */
     private LinkedList<Capteur> capteurs;
+    /**
+     * Tronçon suivant
+     */
+    private Troncon suivant;
+    /**
+     * Tronçon précédent
+     */
+    private Troncon precedent;
 
     public Troncon(Rail parent) {
 	this.parent = parent;
@@ -60,23 +68,23 @@ public class Troncon {
      *	    En cas de déraillement
      */
     public Troncon getNextTroncon(Sens sens) throws OutOfRail{
-	if(this.equals(parent.getTroncons().getLast())){
+	if(suivant.equals(null)){
 	    switch(sens){
-		case AMONT : return parent.getTroncons().get(parent.getTroncons().size() - 2);
+		case AMONT : return precedent;
 		case AVAL : if(parent.getAval().getType().equals(TypeJonction.BUTEE)){
 				throw new OutOfRail("T'es buté mec !", TypeProbleme.BUTEE);
 			    }
 			    if(parent.getAval().getType().equals(TypeJonction.AIGUILLAGE)){
 				throw new OutOfRail("On t'as mal renseigné !", TypeProbleme.AIGUILLAGE_FAIL);
 			    }
-			    return ((Jonction)(parent.getAval())).getAval().getUnTroncon(0);
+			    return ((Jonction)(parent.getAval())).getAval().getPremierTroncon();
 		default : return this;
 	    }
 	}
 	else{
 	    switch(sens){
-		case AMONT : return parent.getUnTroncon(parent.getTroncons().indexOf(this)-1);
-		case AVAL : return parent.getUnTroncon(parent.getTroncons().indexOf(this)-1);
+		case AMONT : return precedent;
+		case AVAL : return suivant;
 		default : return this;
 	    }
 	}

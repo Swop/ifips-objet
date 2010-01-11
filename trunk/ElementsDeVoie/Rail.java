@@ -14,17 +14,23 @@ import Semaphore.*;
  */
 public class Rail extends ElementDeVoie{
 
-    private LinkedList<Troncon> troncons;
+    private Troncon premierTroncon;
+    private Troncon dernierTroncon;
     private ElementsJonction amont;
     private ElementsJonction aval;
     private LinkedList<Semaphore> semaphoresAmont;
     private LinkedList<Semaphore> semaphoresAval;
 
-    public Rail(LinkedList<Troncon> troncons, ElementsJonction amont, ElementsJonction aval) {
-	this.troncons = troncons;
+    public Rail(Troncon premierTroncon, Troncon dernierTroncon, ElementsJonction amont, ElementsJonction aval, LinkedList<Semaphore> semaphoresAmont, LinkedList<Semaphore> semaphoresAval) {
+	this.premierTroncon = premierTroncon;
+	this.dernierTroncon = dernierTroncon;
 	this.amont = amont;
 	this.aval = aval;
+	this.semaphoresAmont = semaphoresAmont;
+	this.semaphoresAval = semaphoresAval;
     }
+
+   
 
     public ElementsJonction getAmont() {
 	return amont;
@@ -58,17 +64,20 @@ public class Rail extends ElementDeVoie{
 	this.semaphoresAval = semaphoresAval;
     }
 
-    public LinkedList<Troncon> getTroncons() {
-	return troncons;
+    public Troncon getDernierTroncon() {
+	return dernierTroncon;
     }
 
-    public void setTroncons(LinkedList<Troncon> troncons) {
-	this.troncons = troncons;
+    public void setDernierTroncon(Troncon dernierTroncon) {
+	this.dernierTroncon = dernierTroncon;
     }
 
-    public Troncon getUnTroncon(int index){
-	return troncons.get(index);
+    public Troncon getPremierTroncon() {
+	return premierTroncon;
     }
 
+    public void setPremierTroncon(Troncon premierTroncon) {
+	this.premierTroncon = premierTroncon;
+    }
 
 }
