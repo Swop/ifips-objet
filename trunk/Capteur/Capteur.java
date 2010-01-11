@@ -34,6 +34,7 @@ public abstract class Capteur {
     /**
      * Dit si au moins un train est passé pendant l'unité de temps.
      * /!\Attention/!\ REINITIALISE LE CAPTEUR A INACTIF /!\Attention/!\
+     * Doit être appelé une fois par unité de temps
      * @return boolean
      */
     public boolean isActif(){
@@ -46,6 +47,10 @@ public abstract class Capteur {
         
     }
 
+    /**
+     * Fonction générique pour activer un capteur dès qu'un train passe dessus
+     * @param t le train qui passe, permet de récuperer des informations qui peuvent êtres nécéssaire au capteur
+     */
     public abstract void activer(Train t);
 
     
