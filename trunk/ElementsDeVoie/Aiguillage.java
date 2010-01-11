@@ -40,6 +40,7 @@ public class Aiguillage extends ElementsJonction{
 	this.amont = amont;
 	this.aval = aval;
 	this.id = compteurId;
+	this.lien = new LinkedList();
 	compteurId ++;
     }
 
@@ -47,6 +48,7 @@ public class Aiguillage extends ElementsJonction{
 	this.amont = new LinkedList<Rail>();
 	this.aval = new LinkedList<Rail>();
 	this.id = compteurId;
+	this.lien = new LinkedList();
 	compteurId ++;
     }
 
@@ -60,6 +62,7 @@ public class Aiguillage extends ElementsJonction{
 
     public void addAmont(Rail amont){
 	this.amont.add(amont);
+	amont.setAval(this);
     }
 
     public LinkedList<Rail> getAval() {
@@ -72,10 +75,11 @@ public class Aiguillage extends ElementsJonction{
 
     public void addAval(Rail aval){
 	this.aval.add(aval);
+	aval.setAmont(this);
     }
 
     public Rail getLienAmont() {
-	return lien.get(0);
+	    return lien.get(0);
     }
 
     public Rail getLienAval() {
