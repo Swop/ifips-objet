@@ -11,10 +11,13 @@ package gestion_train;
  * @author swop
  */
 
+import Capteur.Capteur;
 import ElementsDeVoie.Troncon;
 import ElementsDeVoie.OutOfRail;
 import Semaphore.Semaphore;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Train {
     private int id;
@@ -33,78 +36,54 @@ public class Train {
 	this.sensDeplacement = sens;
     }
 
-    public void avancer_rec(int pointMouvement) {
-	// Point mouvements
+    public void avancer_rec(int pointMouvement) throws ProblemeTrain {
+	//Capteurs
+	Troncon t = this.position;
+	int tailleRec = this.taille;
+	while(tailleRec > 0) {
+	    for(Capteur c : t.getCapteurs()) {
+		c.activer(this);
+	    }
+	    
+	    Sens sensInverse;
+	    if(this.sensDeplacement == Sens.AMONT)
+		sensInverse = Sens.AVAL;
+	    else
+		sensInverse = Sens.AMONT;
+	    try {
+		t = t.getNextTroncon(sensInverse);
+	    } catch (OutOfRail ex) {}
+	    
+	    tailleRec--;
+	}
+	
 	// Semaphore ?
-	    //Pour tt semaphore -> changer vitesse courante
+	t = this.position;
+	Collection<Semaphore> sems = t.testSemaphore(sensDeplacement);
+	for(Semaphore sem : sems) {
+	    System.out.println("Le train "+this.id+" appercois un semaphore : "+sem.toString());
+	    sem.actionTrain(this);
+	    if(this.vitesseCourante == 0) {
+		pointMouvement = 0;
+		break;
+	    }
+	}
+
+	if(pointMouvement > 0) {
+	    try {
+		this.position = this.position.getNextTroncon(sensDeplacement);
+	    } catch (OutOfRail ex) {
+		if(ex.getType() == OutOfRail.TypeProbleme.BUTEE)
+		    throw new ProblemeTrain("Le train "+this.id+" a depasse une butee.", ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
+		else
+		    throw new ProblemeTrain("Le train "+this.id+" a deraille sur un aguillage.", ProblemeTrain.TypeProbleme.DERAILLER);
+	    }
+	    avancer_rec(pointMouvement--);
+	}
     }
 
     public void avancer() throws ProblemeTrain {
-	//int i = this.vitesseCourante;
-	
-	Collection<Semaphore> sems;
-	Troncon t;
-	    try {
-		t = this.position.getNextTroncon(this.sensDeplacement);
-	    } catch(OutOfRail ex) {
-		if(ex.getType() == OutOfRail.TypeProbleme.BUTEE)
-		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
-		else
-		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
-	    }
-	if (this.sensDeplacement == Sens.AMONT) {
-	    sems = t.getParent().getSemaphoresAmont();
-	} else {
-	    sems = t.getParent().getSemaphoresAval();
-	}
-	for(Semaphore sem : sems) {
-	    sem.actionTrain(this);
-	}
-
-	while(this.vitesseCourante > 0) {
-	    // Avancer le train, test butee
-	    //Troncon t;
-	    try {
-		t = this.position.getNextTroncon(this.sensDeplacement);
-	    } catch(OutOfRail ex) {
-		if(ex.getType() == OutOfRail.TypeProbleme.BUTEE)
-		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
-		else
-		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
-	    }
-
-	    //Collection<Train> tr = SimulationReseauFerroviaire.trains;
-	    if (this.sensDeplacement == Sens.AMONT) {
-		sems = t.getParent().getSemaphoresAmont();
-	    } else {
-		sems = t.getParent().getSemaphoresAval();
-	    }
-	    for(Semaphore sem : sems) {
-		sem.actionTrain(this);
-	    }
-	    this.deraillerAguillageAuMilieuDuTrain();
-
-	    //vitesse
-	}
-    }
-
-    private void deraillerAguillageAuMilieuDuTrain() throws ProblemeTrain {
-	Troncon t = this.position;
-	int i = this.taille;
-
-	Sens sensInverse;
-	if(this.sensDeplacement == Sens.AMONT)
-	    sensInverse = Sens.AVAL;
-	else
-	    sensInverse = Sens.AMONT;
-
-	while(i > 0) {
-	    try {
-		t = t.getNextTroncon(sensInverse);
-	    } catch(OutOfRail ex) {
-		throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
-	    }
-	}
+	this.avancer_rec(vitesseCourante);
     }
 
     public int getId() {
@@ -140,6 +119,7 @@ public class Train {
 	    this.vitesseCourante = vitesse;
 	else
 	    this.vitesseCourante = this.vitesseMax;
+	System.out.println("Le train "+id+" change sa vitesse pour : "+this.vitesseCourante);
     }
 
     public void setVitessePourcentage(float pourc) {
@@ -149,6 +129,7 @@ public class Train {
 	    pourc = 1;
 
 	this.vitesseCourante = (int) Math.floor(this.vitesseMax * pourc);
+	System.out.println("Le train "+id+" change sa vitesse (pourcentage) pour la nouvelle vitesse : "+this.vitesseCourante);
     }
 
 

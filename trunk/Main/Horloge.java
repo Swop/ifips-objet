@@ -26,7 +26,7 @@ public class Horloge {
 	    try {
 		t.avancer();
 	    } catch (ProblemeTrain ex) {
-		Logger.getLogger(Horloge.class.getName()).log(Level.SEVERE, null, ex);
+		System.out.println(ex.getMessage());
 	    }
 	}
 
