@@ -2,6 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
+package Main;
+
 import ElementsDeVoie.*;
 import Regulation.ElementDeRegulation;
 import Semaphore.ChangementVitesse;

@@ -36,6 +36,15 @@ public class Train {
 	//int i = this.vitesseCourante;
 	
 	Collection<Semaphore> sems;
+	Troncon t;
+	    try {
+		t = this.position.getNextTroncon(this.sensDeplacement);
+	    } catch(OutOfRail ex) {
+		if(ex.getType() == OutOfRail.TypeProbleme.BUTEE)
+		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DEPASSEMENT_BUTEE);
+		else
+		    throw new ProblemeTrain(ProblemeTrain.TypeProbleme.DERAILLER);
+	    }
 	if (this.sensDeplacement == Sens.AMONT) {
 	    sems = t.getParent().getSemaphoresAmont();
 	} else {
@@ -47,7 +56,7 @@ public class Train {
 
 	while(this.vitesseCourante > 0) {
 	    // Avancer le train, test butee
-	    Troncon t;
+	    //Troncon t;
 	    try {
 		t = this.position.getNextTroncon(this.sensDeplacement);
 	    } catch(OutOfRail ex) {

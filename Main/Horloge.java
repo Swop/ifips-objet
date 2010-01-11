@@ -1,4 +1,6 @@
 
+package Main;
+
 import Regulation.ElementDeRegulation;
 import gestion_train.ProblemeTrain;
 import gestion_train.Train;
